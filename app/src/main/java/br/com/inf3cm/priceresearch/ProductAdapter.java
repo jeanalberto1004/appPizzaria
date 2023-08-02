@@ -15,7 +15,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.transition.Hold;
+
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> implements Filterable {
 
@@ -78,13 +82,16 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         // vincular = ligar os obejetos da tela com dados e os objetos em java
         Product mProductCurrent = mProductList.get(position);  //current = item utilizado
         holder.mTextViewItemProductName.setText(mProductCurrent.getName());
+        String mStringPrice = String.format("% .2f" , mProductCurrent.getPrice());
+        holder.mTextViewItemProductPrice.setText(  mStringPrice);
+        holder.mTextViewItemProductPrice.setTextColor( Color.parseColor(setPriceColor(mProductCurrent.getRating())));
         holder.mTextViewItemProductPrice.setText(  "R$"  +    mProductCurrent.getPrice());
         // precisa formatar corretmente o preco
         holder.mRatingBarItemProductRatingStar.setRating(mProductCurrent.getRating());
         // trocar a cor do preco
         holder.mTextViewItemProductPrice.setTextColor(Color.parseColor(setPriceColor(mProductCurrent.getRating())));
         holder.mButtonProductQuantity.setText("" + mProductCurrent.getUnit());
-
+        //Glide.with().load().into();imagem
 
 
     }
@@ -117,9 +124,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 // soma dos valores
                 vTotalPrice = vTotalPrice + mProductList.get(i).getPrice() * mProductList.get(i).getUnit();
             }
+
             mTextViewTotalPrice.setText("R$ "  + vTotalPrice  );
             // precisa formatar para moeda = currency
-
+            NumberFormat mNumberFormat = NumberFormat.getCurrencyInstance(new Locale("pt" , "BR"));
+            String mStringValue = mNumberFormat.format(vTotalPrice);
+            mTextViewTotalPrice.setText(mStringValue);
 
 
         }
@@ -130,21 +140,38 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         // para isso criar um classe
         public class ClickMyButtonAdd implements View.OnClickListener{
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 vQuantity = mProductList.get(getAdapterPosition()).getUnit() + 1;
+                if(vQuantity >=10){
+                    mButtonProductQuantity.setTextSize(12f);
+                }else{
+                    mButtonProductQuantity.setTextSize(18f);
+                }
+
+
                 mButtonProductQuantity.setText( ""  + vQuantity  );
-                showTotalPrice();
+                mProductList.get(getAdapterPosition()).setUnit(vQuantity);
+                showTotalPrice(); //ira mudar
             }
         }
         public class ClickMyButtonRemove implements View.OnClickListener{
             @Override
-            public void onClick(View v) {
-                vQuantity = mProductList.get(getAdapterPosition()).getUnit() - 1;
-                if(vQuantity < 0) {
-                    vQuantity=0;
+            public void onClick(View view) {
+                if(vQuantity > 0) {
+                    vQuantity = mProductList.get(getAdapterPosition()).getUnit() - 1;
+                if(vQuantity >= 10 ){
+                  mButtonProductQuantity.setTextSize(12f);
+                }else{
+                    mButtonProductQuantity.setTextSize(18f);
+                    }
+                if (vQuantity <0){ //bug de correção
+                    vQuantity = 0;
                 }
-                mButtonProductQuantity.setText( ""  + vQuantity  );
-                showTotalPrice();
+                    mButtonProductQuantity.setText( ""  + vQuantity  );
+                    mProductList.get(getAdapterPosition()).setUnit(vQuantity);
+                showTotalPrice();//ira mudar
+                }
+
             }
         }
 
@@ -165,6 +192,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             mButtonProductAdd.setOnClickListener(new ClickMyButtonAdd());
             mButtonProductRemove.setOnClickListener(new ClickMyButtonRemove());
 
+            itemView.setTag(this);
             // definir o escutador/ouvinte/listener do clique no item = LAYTOUT DO CARD
             itemView.setOnClickListener(mOnClickListener);
             itemView.setOnLongClickListener(mOnLongClickListener);

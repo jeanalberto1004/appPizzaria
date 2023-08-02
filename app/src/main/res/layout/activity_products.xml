@@ -205,24 +205,24 @@
         app:layout_constraintBottom_toBottomOf="@+id/fab_exit_app"
         app:layout_constraintEnd_toStartOf="@+id/fab_exit_app"
         app:layout_constraintTop_toTopOf="@+id/fab_exit_app" />
+<!--
 
 
-
-    <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:id="@+id/fab_exit_app"-->
-<!--        android:contentDescription="Quit App"-->
-<!--        app:layout_anchor="@+id/recyclerView_products"-->
-<!--        android:layout_margin="18dp"-->
-<!--        android:backgroundTint="@color/pig_900"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:borderWidth="0dp"-->
-<!--        android:elevation="6dp"-->
-<!--        app:fabSize="normal"-->
-<!--        android:src="@drawable/ic_logout"-->
-<!--       />-->
+    com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+     android:id="@+id/fab_exit_app"
+     android:contentDescription="Quit App"
+        app:layout_anchor="@+id/recyclerView_products"
+        android:layout_margin="18dp"
+        android:backgroundTint="@color/pig_900"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:borderWidth="0dp"
+        android:elevation="6dp"
+        app:fabSize="normal"
+       android:src="@drawable/ic_logout"/>
 
 
+---!/>
 </androidx.constraintlayout.widget.ConstraintLayout>
