@@ -29,7 +29,7 @@
 
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Senha</string>
-
+    <string name="text_abandon_reset_password">Abandono de resetar senha</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
 
@@ -41,7 +41,7 @@
     <string name="login_failed" translatable="true">"Login failed"</string>
 
     <string name="title_activity_sign_up" translatable="true">SignUpActivity</string>
-    <string name="already_have_an_account_login" translatable="true">Se Caso Você Estiver Conta</string>
+    <string name="already_have_an_account_login" translatable="true">Already have an account? Login</string>
 
 
     <string name="item_menu_pizza" translatable="false">Pizza</string>
