@@ -31,6 +31,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView_new_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_new_user"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login"
+        app:layout_constraintVertical_bias="0.922" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageView"
+        android:layout_width="228dp"
+        android:layout_height="375dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:srcCompat="@drawable/logo"
+        tools:layout_editor_absoluteX="91dp"
+        tools:ignore="MissingConstraints" />
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -149,26 +171,6 @@
 
     </ScrollView>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textView_new_user"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/text_new_user"
-        android:textAlignment="viewEnd"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login"
-        app:layout_constraintVertical_bias="0.922" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="305dp"
-        android:layout_height="588dp"
-        app:srcCompat="@drawable/logo"
-        tools:layout_editor_absoluteX="53dp"
-        tools:layout_editor_absoluteY="-63dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
