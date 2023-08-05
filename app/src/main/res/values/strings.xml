@@ -9,7 +9,7 @@
     <string name="text_button_login">já tenho o primeiro acesso</string>
     <string name="text_password">Senha</string>
     <string name="text_log_in">Login</string>
-    <string name="text_list_products">lista</string>
+    <string name="text_list_products">Cupons</string>
     <string name="text_total_purchase_value_forecast">total</string>
     <string name="text_user_test">jean</string>
     <string name="text_log_out">Deslogar</string>
@@ -25,7 +25,6 @@
     <string name="text_error_all_fields_required">Preencha Todos os Campos</string>
     <string name="title_activity_login">Atividade de Login</string>
     <string name="text_email_not_valid">Email invalido</string>
-    <string name="text_abandon_reset_password">Abandono de resetar senha</string>
 
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Senha</string>
@@ -39,9 +38,11 @@
     <string name="invalid_password" translatable="true">Password must be >5 characters</string>
 
     <string name="login_failed" translatable="true">"Login failed"</string>
+    <string name="submit" translatable="false">Enviar</string>
 
     <string name="title_activity_sign_up" translatable="true">SignUpActivity</string>
-    <string name="already_have_an_account_login" translatable="true">Already have an account? Login</string>
+    <string name="already_have_an_account_login" translatable="true">Caso já tenha uma Conta</string>
+    <string name="text_volt" translatable="true">Caso já lembrou da Senha</string>
 
 
     <string name="item_menu_pizza" translatable="false">Pizza</string>

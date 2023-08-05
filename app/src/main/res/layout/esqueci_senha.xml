@@ -8,11 +8,34 @@
     android:padding="24dp"
 
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView_sign_up"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/text_new_password"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.appcompat.widget.AppCompatImageView
+
+        android:id="@+id/appCompatImageView"
+        android:layout_width="228dp"
+        android:layout_height="375dp"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@+id/scrollViewRegistrar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
     <androidx.appcompat.widget.AppCompatEditText
+
         android:id="@+id/editText_email_reset"
         android:hint="@string/text_email"
-        android:textSize="18sp"
+        android:textSize="18dp"
         android:layout_marginStart="18dp"
         android:layout_marginEnd="18dp"
         android:paddingStart="18dp"
@@ -21,8 +44,9 @@
         android:layout_height="50dp"
         android:drawableRight="@drawable/ic_email"
         android:background="@drawable/bg_edit_normal"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColor="@color/black"
+        android:drawableTint="@color/black"
+        android:textColorHint="@color/black"
         android:layout_marginBottom="24dp"
         android:inputType="textEmailAddress"/>
 
@@ -36,13 +60,15 @@
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:id="@+id/button_submit_reset_password"
-        android:text="Submit"
-        android:background="@drawable/bg_edit_normal"
-        android:textColor="@color/white"
         android:backgroundTint="@color/red"
+        android:letterSpacing="0.04"
+        android:paddingStart="120dp"
+        android:paddingTop="7dp"
+        android:id="@+id/button_submit_reset_password"
+        android:text="@string/submit"
+        android:background="@drawable/bg_button_normal"
+        android:textColor="@color/black"
         android:textSize="18sp"
-        android:paddingStart="18dp"
         android:paddingEnd="18dp"
         android:textAllCaps="false"
         android:layout_marginBottom="115dp"/>

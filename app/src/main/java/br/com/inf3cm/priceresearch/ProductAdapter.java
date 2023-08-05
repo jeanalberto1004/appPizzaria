@@ -15,8 +15,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.transition.Hold;
-
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
@@ -72,7 +70,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @Override
     public ProductAdapter.ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater mLayoutInflater = LayoutInflater.from(mContext);
-        View mItemView = mLayoutInflater.inflate(R.layout.card_item_product_list , parent , false);
+        View mItemView = mLayoutInflater.inflate(R.layout.card_cupom, parent , false);
 
         return new ProductViewHolder(mItemView);
     }

@@ -1,43 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue_200"
     android:focusable="true"
     android:focusableInTouchMode="false"
-    android:background="@color/blue_200"
-    android:scaleType="centerCrop"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:scaleType="centerCrop">
     <!--imagem dando erro-->
 
-<!--    <ImageView-->
-<!--        android:id="@+id/logo"-->
-<!--        android:layout_width="228dp"-->
-<!--        android:layout_height="375dp"-->
-<!--        android:src="@drawable/logo"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/scrollViewRegistrar"-->
-<!--        tools:layout_editor_absoluteX="91dp" />-->
+    <androidx.appcompat.widget.AppCompatImageView
+
+        android:id="@+id/appCompatImageView"
+        android:layout_width="228dp"
+        android:layout_height="375dp"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@+id/scrollViewRegistrar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView_sign_up"
+        style="@style/TextAppearance.AppCompat.Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView_sign_up"
-        android:text="@string/text_new_user"
-        android:textSize="24dp"
-        android:textColor="@color/black"
-        android:layout_marginEnd="24dp"
         android:layout_marginTop="12dp"
-        style="@style/TextAppearance.AppCompat.Headline"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="24dp"
+        android:text="@string/text_new_user"
+        android:textColor="@color/black"
+        android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/scrollViewRegistrar"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -139,13 +142,13 @@
                 android:background="@drawable/bg_button_normal"
                 android:backgroundTint="@color/red"
                 android:letterSpacing="0.04"
-                android:text="@string/text_new_user"
                 android:paddingStart="90dp"
                 android:paddingTop="7dp"
-                android:textStyle="bold"
+                android:text="@string/text_new_user"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@id/linear_layout_bottom_signup" />
 
 

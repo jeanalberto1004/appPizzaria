@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue_200"
+    android:src="@drawable/th"
     android:focusable="true"
     android:focusableInTouchMode="false"
 
@@ -13,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/imagem_login"
-        android:src=""
+
         android:scaleType="fitCenter"/>
 
 
