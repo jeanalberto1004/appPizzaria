@@ -8,7 +8,6 @@
     android:focusable="true"
     android:focusableInTouchMode="false"
     android:scaleType="centerCrop">
-    <!--imagem dando erro-->
 
     <androidx.appcompat.widget.AppCompatImageView
 

@@ -9,6 +9,85 @@ public class User {
     private int mId;
     private String mFullName;
     private String mUserName;
+    private String mPassword;
+
+    public int getmId() {
+        return mId;
+    }
+
+    public void setmId(int mId) {
+        this.mId = mId;
+    }
+
+    public String getmFullName() {
+        return mFullName;
+    }
+
+    public void setmFullName(String mFullName) {
+        this.mFullName = mFullName;
+    }
+
+    public String getmUserName() {
+        return mUserName;
+    }
+
+    public void setmUserName(String mUserName) {
+        this.mUserName = mUserName;
+    }
+
+    public String getmPassword() {
+        return mPassword;
+    }
+
+    public void setmPassword(String mPassword) {
+        this.mPassword = mPassword;
+    }
+
+    public String getmEmail() {
+        return mEmail;
+    }
+
+    public void setmEmail(String mEmail) {
+        this.mEmail = mEmail;
+    }
+
+    public long getmCreateDate() {
+        return mCreateDate;
+    }
+
+    public void setmCreateDate(long mCreateDate) {
+        this.mCreateDate = mCreateDate;
+    }
+
+    public String getmApiKey() {
+        return mApiKey;
+    }
+
+    public void setmApiKey(String mApiKey) {
+        this.mApiKey = mApiKey;
+    }
+
+    public String getmResetPasswordOtp() {
+        return mResetPasswordOtp;
+    }
+
+    public void setmResetPasswordOtp(String mResetPasswordOtp) {
+        this.mResetPasswordOtp = mResetPasswordOtp;
+    }
+
+    public long getmResetPasswordCreatedAt() {
+        return mResetPasswordCreatedAt;
+    }
+
+    public void setmResetPasswordCreatedAt(long mResetPasswordCreatedAt) {
+        this.mResetPasswordCreatedAt = mResetPasswordCreatedAt;
+    }
+
+    private String mEmail;
+    private long mCreateDate;
+    private String mApiKey;
+    private String mResetPasswordOtp;
+    private long mResetPasswordCreatedAt;
 
     @Override
     public String toString() {
@@ -119,13 +198,6 @@ public class User {
     public void setResetPasswordCreatedAt(long resetPasswordCreatedAt) {
         mResetPasswordCreatedAt = resetPasswordCreatedAt;
     }
-
-    private String mPassword;
-    private String mEmail;
-    private long mCreateDate;
-    private String mApiKey;
-    private String mResetPasswordOtp;
-    private long mResetPasswordCreatedAt;
 
 
 
