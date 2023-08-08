@@ -1,6 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cupom"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/blue_200">
 
+    <ImageButton
+        android:id="@+id/closebtn"
+        android:layout_width="72dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_close" />
+
+    <TextView
+        android:id="@+id/nome_cupom"
+        android:layout_width="245dp"
+        android:layout_height="0dp"
+        android:textSize="18dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginBottom="30dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/editTextDate2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/bg_edit_normal"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextDate2"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginBottom="500dp"
+        android:ems="10"
+
+        android:background="@drawable/bg_edit_normal"
+        android:inputType="date"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/editTextDate4"
+        app:layout_constraintTop_toBottomOf="@+id/nome_cupom" />
+
+    <EditText
+        android:id="@+id/editTextDate4"
+        android:layout_width="140dp"
+        android:textSize="18dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="504dp"
+        android:ems="10"
+        android:text=""
+        android:background="@drawable/bg_edit_normal"
+        android:inputType="date"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nome_cupom"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/usar_cupom"
+        android:layout_width="225dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="64dp"
+        android:text="usar esse cupom"
+        android:background="@drawable/bg_edit_normal"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
