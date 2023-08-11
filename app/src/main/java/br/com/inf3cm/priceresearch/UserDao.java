@@ -133,7 +133,7 @@ public class UserDao {
                         mResultSet.getLong(6),
                         mResultSet.getString(7),
                         mResultSet.getString(8),
-                        mResultSet.getLong(9),
+                        mResultSet.getLong(9)
 
                 ));
             }
@@ -151,8 +151,13 @@ public class UserDao {
             PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
             ResultSet mResultSet = mPreparedStatement.executeQuery();
             mUserList = new ArrayList<User>();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+
         }
+        return null;
     }
+
 
     public static String authenticateUser(  User mUser ,  Context mContext){
 
@@ -168,7 +173,7 @@ public class UserDao {
 
 
             while(mResultSet.next()){
-               vResponse = mResultSet.getString(2); //fullname
+                vResponse = mResultSet.getString(2); //fullname
             }
 
         } catch (Exception e){
@@ -182,7 +187,6 @@ public class UserDao {
 
 
 }
-
 
 
 

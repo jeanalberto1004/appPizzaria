@@ -1,28 +1,16 @@
-
-        package br.com.inf3cm.priceresearch;
-
+package br.com.inf3cm.priceresearch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import android.os.Bundle;
 
-
 import br.com.tcc.pizzaria.R;
-
-
+//public static final String IP_VALUE = "192.168.0.13";
 public class MainActivity extends AppCompatActivity {
 
-
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-
-
         setContentView(R.layout.login);
-
     }
-
 }

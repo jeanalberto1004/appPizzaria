@@ -1,79 +1,69 @@
 package br.com.inf3cm.priceresearch;
 
-import static net.sourceforge.jtds.util.Logger.log;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-import android.util.log;
-
+import android.content.Intent;
 import android.os.Bundle;
-
-import android.support.v7.app.AppCompatActivity;
-
+import android.util.Patterns;
 import android.view.View;
-
 import android.widget.Button;
-
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
-public class RegisterActivity extends AppCompatActivity {
+import java.util.HashMap;
+import java.util.Map;
 
+import br.com.tcc.pizzaria.R;
 
-    private EditText editTextUsername, editTextPassword;
+public class NewPasswordActivity extends AppCompatActivity {
 
-    private Button buttonRegister;
+    EditText mEditTextNewPassword, mEditTextOtp;
+    Button mButtonSubmitOtp;
+    ProgressBar mProgressBarNewPassword;
 
+    String mEmail;
 
     @Override
-
-    protected void onCreate(Bundle savedInstanceState) {
-
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.nova_senha);
 
-        setContentView(R.layout.activity_register);
+        mEditTextNewPassword = findViewById(R.id.editText_new_password);
+        mEditTextOtp = findViewById(R.id.editText_otp);
+        mButtonSubmitOtp = findViewById(R.id.button_submit_otp);
+        mButtonSubmitOtp.setOnClickListener(new ResetPasswordActivity.ClickButtonSubmit());
+//        ClickButtonSubmitNewPassword
+        mProgressBarNewPassword = findViewById(R.id.progressBar_new_password);
 
-
-        editTextUsername = findViewById(R.id.editTextUsername);
-
-        editTextPassword = findViewById(R.id.editTextPassword);
-
-        buttonRegister = findViewById(R.id.buttonRegister);
-
-
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-
-            public void onClick(View view) {
-
-                // Capturar os dados do usuário
-
-                String username = editTextUsername.getText().toString();
-
-                String password = editTextPassword.getText().toString();
-
-
-                // Você pode realizar ações como enviar os dados para um servidor ou salvar localmente
-
-                // Exemplo: chamar um método para registrar o usuário em um banco de dados
-
-
-                // Após o registro, você pode redirecionar o usuário para outra atividade
-
-                // Exemplo: startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
-
-            }
-
-        });
+        mEmail = getIntent().getExtras().getString("email");
 
     }
 
-}
 
-public class MinhaClasse{
+    private void performSubmit() {
 
-    private static final String TAG="MinhaClasse";
+        Toast.makeText(this, "ops falta algo aqui", Toast.LENGTH_SHORT).show();
+        // https://developer.android.com/training/volley?hl=pt-br
+        // https://www.codeseasy.com/google-volley-android/
 
-    public void exemploDeRegistro(){
-        log.d(TAG,"isso é uma mensagem de registro com nivel debug.");
+        mProgressBarNewPassword.setVisibility(View.VISIBLE);
+
+
+        RequestQueue mQueue = Volley.newRequestQueue(getApplicationContext());
+
+        String mUrl = "http://192.168.0.13/app-login-register/new-password.php";
+
+
+
+        }
     }
-}
+
