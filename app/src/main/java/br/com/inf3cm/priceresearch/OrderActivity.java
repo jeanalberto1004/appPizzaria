@@ -43,7 +43,7 @@ public class OrderActivity extends AppCompatActivity {
 
     private void performLogout(){
 
-        String mUrl = "http://192.168.0.13/app-login-register/logout.php";
+        String mUrl = "http://192.168.0.14/app-login-register/logout.php";
         //String mUrl = "https://datafication.me/app-login-register/logout.php";
         RequestQueue mQueue = Volley.newRequestQueue(this);
         StringRequest mStringRequest = new StringRequest(Request.Method.POST, mUrl, new Response.Listener<String>() {
