@@ -71,7 +71,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
         RequestQueue mQueue = Volley.newRequestQueue(getApplicationContext());
 
-        String mUrl = "http://192.168.0.13/app-login-register/reset-password.php";
+        String mUrl = "http://192.168.0.14/app-login-register/reset-password.php";
 
         StringRequest mStringRequest = new StringRequest(Request.Method.POST, mUrl,
                 new Response.Listener<String>() {
@@ -126,7 +126,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
 
 
-    public static class ClickButtonSubmit implements View.OnClickListener{
+    public class ClickButtonSubmit implements View.OnClickListener{
         @Override
         public void onClick(View view) {
             performSubmit();

@@ -35,8 +35,6 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import br.com.tcc.pizzaria.R;
-
 public class SignUpActivity extends AppCompatActivity {
 
     private EditText mEditTextFullName;
@@ -47,20 +45,21 @@ public class SignUpActivity extends AppCompatActivity {
     private TextView mTextViewAlreadyLogin;
     private ProgressBar mProgressBar;
 
-    String mName, mEmail, mPassword, mFullName;
+    String mStringName, mStringEmail, mStringPassword, mStringFullName;
 
     private boolean isRequired(){
-        if(
-                TextUtils.isEmpty(mEditTextFullName.getText()) ||
-                        TextUtils.isEmpty(mEditTextEmail.getText()) ||
-                        TextUtils.isEmpty(mEditTextUserName.getText()) ||
-                        TextUtils.isEmpty(mEditTextPasswordSignUp.getText())
-        ) {
+        if(TextUtils.isEmpty(mEditTextFullName.getText()) ||
+           TextUtils.isEmpty(mEditTextEmail.getText()) ||
+           TextUtils.isEmpty(mEditTextUserName.getText()) ||
+           TextUtils.isEmpty(mEditTextPasswordSignUp.getText()))
+        {
             return true;
         }
-        else {
+        else
+        {
             return false;
         }
+
     }
 
     private void performActivityLogin(){
@@ -76,15 +75,16 @@ public class SignUpActivity extends AppCompatActivity {
             Toast.makeText(this, mTextMessage, Toast.LENGTH_SHORT).show();
             return;
         }
-        mName = String.valueOf(mEditTextUserName.getText());
-        mEmail = String.valueOf(mEditTextEmail.getText());
-        mPassword = String.valueOf(mEditTextPasswordSignUp.getText());
-        mFullName = String.valueOf(mEditTextFullName.getText());
+
+        mStringName = String.valueOf(mEditTextUserName.getText()).toLowerCase(Locale.ROOT);
+        mStringEmail = String.valueOf(mEditTextEmail.getText());
+        mStringPassword = String.valueOf(mEditTextPasswordSignUp.getText());
+        mStringFullName = String.valueOf(mEditTextFullName.getText());
 
         mProgressBar.setVisibility(View.VISIBLE);
         // url to post our data - use IPCONFIG para obter ip 192...
 
-        String mUrl = "http://192.168.0.13/app-login-register/register.php";
+        String mUrl = "http://192.168.0.14/app-login-register/register.php";
         //String mUrl = "https://datafication.me/app-login-register/register.php";
         // creating a new object for our request queue => (I). a line or sequence of people or vehicles awaiting their turn to be attended to or to proceed. line, row, column, file, chain, string, stream, traffic jam, jam, tailback stream, gridlock (II). a list of data items, commands, etc., stored so as to be retrievable in a definite order, usually the order of insertion.
         RequestQueue mQueue = Volley.newRequestQueue(this);
@@ -144,10 +144,10 @@ This logic is OK!!
                 Map<String, String> mParams = new HashMap<String, String>();
                 // on below line we are passing our key
                 // and value pair to our parameters.
-                mParams.put("fullname", mFullName);
-                mParams.put("username", mName);
-                mParams.put("password", mPassword);
-                mParams.put("email", mEmail);
+                mParams.put("fullname", mStringFullName);
+                mParams.put("username", mStringName);
+                mParams.put("password", mStringPassword);
+                mParams.put("email", mStringEmail);
                 // below line is to make
                 // a json object request.
                 return mParams;
@@ -182,7 +182,7 @@ This logic is OK!!
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.registrar_se);
+        setContentView(R.layout.activity_sign_up);
 
         //https://stackoverflow.com/questions/9732761/prevent-the-keyboard-from-displaying-on-activity-start
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
