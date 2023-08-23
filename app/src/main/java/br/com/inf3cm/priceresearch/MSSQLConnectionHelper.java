@@ -51,7 +51,7 @@ public class MSSQLConnectionHelper {
 
 //2 - para LOCALHOST - funciona no emulador ou via cabo usb
 
-    private static String mStringServerIpName = " 172.19.2.221";
+    private static String mStringServerIpName ="192.168.11.220";
 
     private static String mStringUserName = "sa";
 

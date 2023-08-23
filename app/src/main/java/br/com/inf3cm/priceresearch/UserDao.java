@@ -8,10 +8,10 @@ import android.util.Log;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import  java.util.ArrayList;
 import java.util.List;
 
-public class UserDao {
+public class  UserDao {
 
     public static final String TAG = "CRUD table User";
 
@@ -19,14 +19,14 @@ public class UserDao {
         int vResponse = 0; // variavel de resposta com valor 0 = erro ao inserir
         String mSql;
         try {
-            mSql = "INSERT Users ( fullname , username , email , password , createdate,  apikey , reset_password_otp , reset_password_created_at ) VALUES ( ? , ? , ? , ? ,?,?,?,?)";
+            mSql = "INSERT Users ( fullname , username , password, email  , createdate,  apikey , reset_password_otp , reset_password_created_at ) VALUES ( ? , ? , ? , ? ,?,?,?,?)";
 
             PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
 
             mPreparedStatement.setString(1, mUser.getFullName());
             mPreparedStatement.setString(2, mUser.getUserName());
-            mPreparedStatement.setString(3, mUser.getEmail());
-            mPreparedStatement.setString(4, mUser.getPassword());
+            mPreparedStatement.setString(3, mUser.getPassword());
+            mPreparedStatement.setString(4, mUser.getEmail());
             mPreparedStatement.setLong(5, mUser.getCreateDate());
             mPreparedStatement.setString(6, mUser.getApiKey());
             mPreparedStatement.setString(7, mUser.getmResetPasswordOtp());
@@ -48,21 +48,21 @@ public class UserDao {
         int vResponse = 0; // variavel de resposta com valor 0 = erro ao inserir
         String mSql;
         try {
-            mSql = "UPDATE Users SET fullname=? , username=? , email=? , password=? , createdata=? , apikey=? , reset_password_otp=? , reset_password_created_at=?  WHERE id=?";
+            mSql = "UPDATE Users SET fullname=? , username=?  , password=? , email=?, createdata=? , apikey=? , reset_password_otp= ? , reset_password_created_at=?  WHERE id=?";
 
             PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
 
             mPreparedStatement.setString(1, mUser.getFullName());
             mPreparedStatement.setString(2, mUser.getUserName());
-            mPreparedStatement.setString(3, mUser.getEmail());
-            mPreparedStatement.setString(4, mUser.getPassword());
+            mPreparedStatement.setString(3, mUser.getPassword());
+            mPreparedStatement.setString(4, mUser.getEmail());
             mPreparedStatement.setLong(5, mUser.getCreateDate());
             mPreparedStatement.setString(6, mUser.getApiKey());
             mPreparedStatement.setString(7, mUser.getmResetPasswordOtp());
             mPreparedStatement.setLong(8, mUser.getmResetPasswordCreatedAt());
 
 
-            mPreparedStatement.setInt(5, mUser.getId());
+            mPreparedStatement.setInt(9, mUser.getId());
 
             vResponse = mPreparedStatement.executeUpdate();
 
@@ -147,7 +147,7 @@ public class UserDao {
         List<User> mUserList = null;
         String mSql;
         try{
-            mSql= "SELECT id, name, price, rating, status, image, amountConsumption, consumptionCycle FROM users WHERE status =" + vStatus + "ORDER BY name ASC";
+            mSql= "SELECT id , fullname , username , password , email , createdate , apikey , reset_password_otp , reset_password_created_at FROM users WHERE status =" + vStatus + "ORDER BY name ASC";
             PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
             ResultSet mResultSet = mPreparedStatement.executeQuery();
             mUserList = new ArrayList<User>();
@@ -158,10 +158,42 @@ public class UserDao {
         return null;
     }
 
+    public static List<User> searchUserByName( String mName ,  Context mContext){
+        // objeto para representar a lista
+        List<User> mUserList = null;
+        String mSql = "SELECT id , fullname , username , password , email , createdate , apikey , reset_password_otp , reset_password_created_at FROM Users  WHERE fullname LIKE '%" + mName + "%'  ORDER BY fullname";
+        try{
+            PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
+            // objeto para receber o resultado do conjunto de dados que foi selecionado
+            // esse objeto tem o nome de RESULTSET (em outras lingugens de programacao DATASET)
+            ResultSet mResultSet = mPreparedStatement.executeQuery();
+            // esse conjuto está em memoria. Preciso preparar para exibir na tela essa listagem
+            mUserList = new ArrayList<User>(); // array = dinamica = vai mudar
+            while(mResultSet.next()){
+                mUserList.add(new User(
+                        mResultSet.getInt(1),
+                        mResultSet.getString(2),
+                        mResultSet.getString(3),
+                        mResultSet.getString(4),
+                        mResultSet.getString(5),
+                        mResultSet.getLong(6),
+                        mResultSet.getString(7),
+                        mResultSet.getString(8),
+                        mResultSet.getLong(9)
+
+                ));
+            }
+
+        } catch (Exception e){
+            Log.e(TAG , e.getMessage());
+        }
+
+        return mUserList;
+    }
 
     public static String authenticateUser(  User mUser ,  Context mContext){
 
-        String vResponse = "";
+        String mResponse = "";
         String mSql = "SELECT id , fullname , username , email , password FROM Users WHERE password LIKE ? AND email LIKE ?";
         try{
             PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
@@ -173,15 +205,17 @@ public class UserDao {
 
 
             while(mResultSet.next()){
-                vResponse = mResultSet.getString(2); //fullname
+                mResponse = mResultSet.getString(2); //fullname
+//                mResponse = mResultSet.getString("fullname"); //fullname
             }
 
         } catch (Exception e){
+           mResponse = "Exception";
             Log.e(TAG , e.getMessage());
             e.printStackTrace();
         }
 
-        return vResponse;
+        return mResponse;
     }
 
 

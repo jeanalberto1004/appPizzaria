@@ -47,8 +47,8 @@ import br.com.tcc.pizzaria.R;
 
 public class LoginActivity extends AppCompatActivity {
 
-   TextView mTextViewNewUser, mTextViewForgotPassword;
-   Button mButtonLogin;
+    TextView mTextViewNewUser, mTextViewForgotPassword;
+    Button mButtonLogin;
     EditText mEditTextEmail, mEditTextPassword;
     ProgressBar mProgressBar;
     String mUser, mPassword, mEmail, mApiKey, mIpV4;

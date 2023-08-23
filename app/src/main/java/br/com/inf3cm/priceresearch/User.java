@@ -2,7 +2,7 @@ package br.com.inf3cm.priceresearch;
 
 public class User {
 
-    public static final String TAG = "User Entity";
+    public static final String TAG = "User Table";
 
     //psfs
 
@@ -10,6 +10,33 @@ public class User {
     private String mFullName;
     private String mUserName;
     private String mPassword;
+
+    private String mEmail;
+
+    private long mCreateDate;
+
+    private String mApiKey;
+
+    private String mResetPasswordOtp;
+
+    public User(int mId, String mFullName, String mUserName, String mPassword, String mEmail, long mCreateDate, String mApiKey, String mResetPasswordOtp, long mResetPasswordCreatedAt, String mEmail1, long mCreateDate1, String mApiKey1, String mResetPasswordOtp1, long mResetPasswordCreatedAt1) {
+        this.mId = mId;
+        this.mFullName = mFullName;
+        this.mUserName = mUserName;
+        this.mPassword = mPassword;
+        this.mEmail = mEmail;
+        this.mCreateDate = mCreateDate;
+        this.mApiKey = mApiKey;
+        this.mResetPasswordOtp = mResetPasswordOtp;
+        this.mResetPasswordCreatedAt = mResetPasswordCreatedAt;
+        this.mEmail = mEmail1;
+        this.mCreateDate = mCreateDate1;
+        this.mApiKey = mApiKey1;
+        this.mResetPasswordOtp = mResetPasswordOtp1;
+        this.mResetPasswordCreatedAt = mResetPasswordCreatedAt1;
+    }
+
+    private long mResetPasswordCreatedAt;
 
     public int getmId() {
         return mId;
@@ -82,12 +109,6 @@ public class User {
     public void setmResetPasswordCreatedAt(long mResetPasswordCreatedAt) {
         this.mResetPasswordCreatedAt = mResetPasswordCreatedAt;
     }
-
-    private String mEmail;
-    private long mCreateDate;
-    private String mApiKey;
-    private String mResetPasswordOtp;
-    private long mResetPasswordCreatedAt;
 
     @Override
     public String toString() {
