@@ -38,6 +38,9 @@ public class User {
 
     private long mResetPasswordCreatedAt;
 
+    public User(String mStringPassword, String mStringEmail) {
+    }
+
     public int getmId() {
         return mId;
     }

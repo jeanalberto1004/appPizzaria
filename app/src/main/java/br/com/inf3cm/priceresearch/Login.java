@@ -2,15 +2,19 @@ package br.com.inf3cm.priceresearch;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Locale;
@@ -45,7 +49,7 @@ public class Login extends AppCompatActivity {
             }
 
             private void verifylogged(){
-                    if (mSharedPreferences.getString("logged" , "false").equals(true)){
+                    if (mSharedPreferences.getString("logged" , "false").equals("true")){
                             showProduct();
 
                     }
@@ -69,10 +73,111 @@ public class Login extends AppCompatActivity {
                     }
                 mProgressBarLogin.setVisibility(View.VISIBLE);
 
-                    User mUser = new User(mStringPassword , m0);
+                    User mUser = new User(mStringPassword , mStringEmail);
 
                     String mResult = UserDao.authenticateUser(mUser , getApplicationContext());
+
+                     mProgressBarLogin.setVisibility(View.GONE);
+
+                     if(mResult.isEmpty() || mResult.equals("") || mResult.equals("Exception") ) {
+                         String mTextMessage;
+                         mTextMessage = getString(R.string.text_email_or_password_incorret);
+
+                      if (mResult.equals("Exception")) {
+                       mTextMessage = getString(R.string.text_connection_error);
+                       
+                      }
+                         Toast.makeText(getApplicationContext(), mTextMessage, Toast.LENGTH_SHORT).show();
+                      return;
+                     }
+             SharedPreferences.Editor mEditor = mSharedPreferences.edit();
+                mEditor.putString("logged","true");
+                 mEditor.putString("email" , mStringEmail);
+                 mEditor.putString("fullname" , mResult);
+                 mEditor.apply();
+
+                 Intent mIntent = new Intent(getApplicationContext() , Product.class);
+                 mIntent.putExtra("EXTRA_FULL_NAME" , mResult);
+                 startActivity(mIntent);
+                 finish();
+
             }
- }
+
+            public class ClickMyButtonLogin implements View.OnClickListener{
+                @Override
+                public void onClick(View v) {
+                    postData();
+                }
+            }
+
+            private void showSingup(){
+                Intent mIntent = new Intent(getApplicationContext() , SingUpActivity.class);
+                startActivity(mIntent);
+                finish();
+    }
+            public class ClickMyNewUser implements View.OnClickListener{
+        @Override
+        public void onClick(View v) {
+            showSingup();
+
+        }
+    }
+
+            private void showForgotPassword(){
+               Intent mIntent = new Intent(getApplicationContext() ,ResetPassword.clas);
+               startActivity(mIntent);
+               finish();
+            }
+
+            public class ClickMyForgotPassword implements View.OnClickListener{
+                @Override
+                public void onClick(View v) {
+                    showForgotPassword();
+                }
+            }
+
+            public class EditorMyTextAction implements TextView.OnEditorActionListener{
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    if (actionId == EditorInfo.IME_ACTION_DONE){
+                        postData();
+                    }
+
+                    return false;
+                }
+            }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.login);
+
+        mEditTextEmail = findViewById(R.id.editText_email_login);
+        mEditTextPassword = findViewById(R.id.editText_password_login);
+        mEditTextPassword.setOnEditorActionListener(new EditorMyTextAction());
+
+        mButtonLogin = findViewById(R.id.button_login);
+        mButtonLogin.setOnClickListener(new ClickMyButtonLogin());
+
+        mProgressBarLogin = findViewById(R.id.progressBar_login);
+
+        mTextViewNewUser = findViewById(R.id.textView_new_user);
+        mTextViewNewUser.setOnClickListener(new ClickMyNewUser());
+
+        mTextViewForgotPassword = findViewById(R.id.textView_forgot_password);
+        mTextViewForgotPassword.setOnClickListener(new ClickMyForgotPassword());
+
+        mSharedPreferences = getSharedPreferences("Pizzaria]_Flash" , MODE_PRIVATE);
+
+        verifylogged();
+
+
+    }
+}
+
+
+
+
+
 
 

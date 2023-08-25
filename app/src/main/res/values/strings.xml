@@ -16,10 +16,12 @@
     <string name="text_fetch_user">Busca de Usuário</string>
     <string name="app_version">versao</string>
     <string name="text_email_or_username">Email do Usuário</string>
+    <string name="text_email_or_password_incorret">"senha incorreta"</string>
 
     <string name="text_full_name">Nome inteiro</string>
     <string name="text_email">Email</string>
     <string name="text_user_name">Username</string>
+    <string name="text_connection_error">Erro de Conecção</string>
 
     <string name="text_error_fill_mandatory_information">informação Obrigatoria</string>
     <string name="text_error_all_fields_required">Preencha Todos os Campos</string>
