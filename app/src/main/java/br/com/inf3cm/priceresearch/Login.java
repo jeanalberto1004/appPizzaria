@@ -48,7 +48,7 @@ public class Login extends AppCompatActivity {
                     finish();
             }
 
-            private void verifylogged(){
+            private void verifyLogged(){
                     if (mSharedPreferences.getString("logged" , "false").equals("true")){
                             showProduct();
 
@@ -105,40 +105,40 @@ public class Login extends AppCompatActivity {
 
             public class ClickMyButtonLogin implements View.OnClickListener{
                 @Override
-                public void onClick(View v) {
+                public void onClick(View view) {
                     postData();
                 }
             }
 
-            private void showSingup(){
+            private void showSingUp(){
                 Intent mIntent = new Intent(getApplicationContext() , SingUpActivity.class);
                 startActivity(mIntent);
                 finish();
     }
             public class ClickMyNewUser implements View.OnClickListener{
         @Override
-        public void onClick(View v) {
-            showSingup();
+        public void onClick(View view) {
+            showSingUp();
 
         }
     }
 
             private void showForgotPassword(){
-               Intent mIntent = new Intent(getApplicationContext() ,ResetPassword.clas);
+               Intent mIntent = new Intent(getApplicationContext() ,ResetPassword.class);
                startActivity(mIntent);
                finish();
             }
 
             public class ClickMyForgotPassword implements View.OnClickListener{
                 @Override
-                public void onClick(View v) {
+                public void onClick(View view) {
                     showForgotPassword();
                 }
             }
 
             public class EditorMyTextAction implements TextView.OnEditorActionListener{
                 @Override
-                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
                     if (actionId == EditorInfo.IME_ACTION_DONE){
                         postData();
                     }
@@ -167,9 +167,9 @@ public class Login extends AppCompatActivity {
         mTextViewForgotPassword = findViewById(R.id.textView_forgot_password);
         mTextViewForgotPassword.setOnClickListener(new ClickMyForgotPassword());
 
-        mSharedPreferences = getSharedPreferences("Pizzaria]_Flash" , MODE_PRIVATE);
+        mSharedPreferences = getSharedPreferences("Tcc_Flash" , MODE_PRIVATE);
 
-        verifylogged();
+        verifyLogged();
 
 
     }

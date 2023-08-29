@@ -205,8 +205,8 @@ public class  UserDao {
 
 
             while(mResultSet.next()){
-                mResponse = mResultSet.getString(2); //fullname
-//                mResponse = mResultSet.getString("fullname"); //fullname
+                mResponse = mResultSet.getString(2);
+                mResponse = mResultSet.getString("fullname");
             }
 
         } catch (Exception e){
