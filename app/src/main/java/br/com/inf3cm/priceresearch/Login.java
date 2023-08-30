@@ -111,7 +111,7 @@ public class Login extends AppCompatActivity {
             }
 
             private void showSingUp(){
-                Intent mIntent = new Intent(getApplicationContext() , SingUpActivity.class);
+                Intent mIntent = new Intent(getApplicationContext() , SignUpActivity.class);
                 startActivity(mIntent);
                 finish();
     }
@@ -124,7 +124,7 @@ public class Login extends AppCompatActivity {
     }
 
             private void showForgotPassword(){
-               Intent mIntent = new Intent(getApplicationContext() ,ResetPassword.class);
+               Intent mIntent = new Intent(getApplicationContext() ,ResetPasswordActivity.class);
                startActivity(mIntent);
                finish();
             }

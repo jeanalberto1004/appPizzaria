@@ -65,7 +65,7 @@
         android:paddingStart="120dp"
         android:paddingTop="7dp"
         android:id="@+id/button_submit_reset_password"
-        android:text="@string/submit"
+        android:text="@string/action_sign_in"
         android:background="@drawable/bg_button_normal"
         android:textColor="@color/black"
         android:textSize="18sp"
