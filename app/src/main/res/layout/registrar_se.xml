@@ -1,45 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_200"
-    android:focusable="true"
-    android:focusableInTouchMode="false"
-    android:scaleType="centerCrop">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="br.com.inf3cm.priceresearch.SingUpActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blue_200"
+        android:scaleType="centerCrop"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-33dp" />
 
-        android:id="@+id/appCompatImageView"
-        android:layout_width="228dp"
-        android:layout_height="375dp"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="208dp"
+        android:layout_height="285dp"
         android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@+id/scrollViewRegistrar"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/appCompatImageView2"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textView_sign_up"
-        style="@style/TextAppearance.AppCompat.Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="24dp"
+        android:id="@+id/textView_sign_up"
         android:text="@string/text_new_user"
-        android:textColor="@color/black"
         android:textSize="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/black"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="12dp"
+        style="@style/TextAppearance.AppCompat.Headline"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
     <ScrollView
-        android:id="@+id/scrollViewRegistrar"
-        android:layout_width="0dp"
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -51,7 +59,7 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="18dp"
                 android:layout_marginEnd="18dp"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="6dp"
                 android:background="@drawable/bg_edit_normal"
                 android:drawableRight="@drawable/ic_full_name"
                 android:drawableTint="@color/black"
@@ -70,7 +78,7 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="18dp"
                 android:layout_marginEnd="18dp"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="6dp"
                 android:background="@drawable/bg_edit_normal"
                 android:drawableRight="@drawable/ic_email"
                 android:drawableTint="@color/black"
@@ -90,7 +98,7 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="18dp"
                 android:layout_marginEnd="18dp"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="6dp"
                 android:background="@drawable/bg_edit_normal"
                 android:drawableRight="@drawable/ic_person"
                 android:drawableTint="@color/black"
@@ -109,11 +117,30 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="18dp"
                 android:layout_marginEnd="18dp"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="6dp"
                 android:background="@drawable/bg_edit_normal"
                 android:drawableRight="@drawable/ic_password"
                 android:drawableTint="@color/black"
                 android:hint="@string/text_password"
+                android:inputType="textPassword"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="18dp"
+                app:layout_constraintBottom_toTopOf="@id/editText_password_sign_up_2" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/editText_password_sign_up_2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/bg_edit_normal"
+                android:drawableRight="@drawable/ic_password"
+                android:drawableTint="@color/black"
+                android:hint="@string/text_enter_the_password_again"
                 android:inputType="textPassword"
                 android:paddingStart="18dp"
                 android:paddingEnd="18dp"
@@ -135,15 +162,16 @@
                 android:id="@+id/button_sign_up"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="12dp"
                 android:background="@drawable/bg_button_normal"
                 android:backgroundTint="@color/red"
                 android:letterSpacing="0.04"
-                android:paddingStart="90dp"
+                android:paddingStart="0dp"
+                android:padding="5dp"
                 android:paddingTop="7dp"
-                android:text="@string/text_new_user"
+                android:text="@string/text_sign_up"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textSize="18sp"
@@ -175,5 +203,6 @@
 
 
     </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

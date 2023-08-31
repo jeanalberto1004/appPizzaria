@@ -126,7 +126,7 @@ public class SingUpActivity extends AppCompatActivity{
         mEditTextUserName = findViewById(R.id.editText_user_name);
         mEditTextFullName = findViewById(R.id.editText_full_name);
         mEditTextPasswordSignUp = findViewById(R.id.editText_password_sign_up);
-//        mEditTextPasswordSignUp2 = findViewById(R.id.editText_password_sign_up_2);
+        mEditTextPasswordSignUp2 = findViewById(R.id.editText_password_sign_up_2);
 
         mTextViewAlreadyLogin = findViewById(R.id.textView_already);
         mTextViewAlreadyLogin.setOnClickListener(new ClickTextViewAlreadyLogin());

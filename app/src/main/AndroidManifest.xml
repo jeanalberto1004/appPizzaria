@@ -11,7 +11,7 @@
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.PriceResearch"
+        android:theme="@style/Theme.LoginRegistration"
         tools:targetApi="31">
         <activity
             android:name="br.com.inf3cm.priceresearch.MainActivity"
@@ -23,15 +23,14 @@
             </intent-filter>
         
         </activity>
-        
-        <activity android:name="br.com.inf3cm.priceresearch.ResetPassword"/>
-
-        <activity android:name="br.com.inf3cm.priceresearch.NewPasswordActivity"/>
 
         <activity android:name="br.com.inf3cm.priceresearch.Login"/>
 
         <activity android:name="br.com.inf3cm.priceresearch.SingUpActivity"/>
-            
+
+        <activity android:name="br.com.inf3cm.priceresearch.ResetPassword"/>
+
+        <activity android:name="br.com.inf3cm.priceresearch.NewPasswordActivity"/>
     </application>
 
 </manifest>

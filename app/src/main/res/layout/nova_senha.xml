@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    tools:context="br.com.inf3cm.priceresearch.NewPasswordActivity"
     android:gravity="center"
     android:background="@color/blue_200"
     android:padding="24dp"
@@ -127,6 +128,6 @@
         android:id="@+id/textView_abandon_reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/text_volt"
+        android:text="@string/already_have_an_account_login"
         android:textSize="18sp" />
 </LinearLayout>
