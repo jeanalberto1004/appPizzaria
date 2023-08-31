@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import br.com.tcc.pizzaria.R;
+
 public class NewPasswordActivity extends AppCompatActivity {
 
     private static final String TAG = "NewPasswordActivity";
@@ -51,7 +53,7 @@ public class NewPasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_password);
+        setContentView(R.layout.nova_senha);
 
         mEditTextNewPassword = findViewById(R.id.editText_new_password);
         mEditTextOtp = findViewById(R.id.editText_otp);

@@ -81,7 +81,7 @@ public class Login extends AppCompatActivity {
 
                      if(mResult.isEmpty() || mResult.equals("") || mResult.equals("Exception") ) {
                          String mTextMessage;
-                         mTextMessage = getString(R.string.text_email_or_password_incorret);
+                         mTextMessage = getString(R.string.text_email_or_password_incorrect);
 
                       if (mResult.equals("Exception")) {
                        mTextMessage = getString(R.string.text_connection_error);
@@ -111,7 +111,7 @@ public class Login extends AppCompatActivity {
             }
 
             private void showSingUp(){
-                Intent mIntent = new Intent(getApplicationContext() , SignUpActivity.class);
+                Intent mIntent = new Intent(getApplicationContext() , SingUpActivity.class);
                 startActivity(mIntent);
                 finish();
     }
@@ -124,7 +124,7 @@ public class Login extends AppCompatActivity {
     }
 
             private void showForgotPassword(){
-               Intent mIntent = new Intent(getApplicationContext() ,ResetPasswordActivity.class);
+               Intent mIntent = new Intent(getApplicationContext() ,ResetPassword.class);
                startActivity(mIntent);
                finish();
             }

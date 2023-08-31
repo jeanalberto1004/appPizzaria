@@ -81,7 +81,7 @@ public class SingUpActivity extends AppCompatActivity{
 
         String mTextMessage;
 
-        mButtonSignUp.setVisibility(View.GONE); //aluna Karen 3F dois clique no botao
+        mButtonSignUp.setVisibility(View.GONE);
 
         if(vResult <= 0){
             mTextMessage = getString(R.string.text_insert_error);
@@ -118,10 +118,9 @@ public class SingUpActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registrar_se);
 
-        //     getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-//
-//        android:focusable="true"
-//        android:focusableInTouchMode="false"
+             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
+
 
         mEditTextEmail = findViewById(R.id.editText_email);
         mEditTextUserName = findViewById(R.id.editText_user_name);
