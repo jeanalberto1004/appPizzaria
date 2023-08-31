@@ -1,5 +1,5 @@
 <resources>
-<!--    <string name="app_name"></string>-->
+<!--    <string name="app_name">Pizzaria flash</string>-->
 <!--    <string name="app_welcome">Bem Vindo</string>-->
 <!--    <string name="text_forgot_password">Esqueceu a Senha?</string>-->
 <!--    <string name="text_new_user">Registrar Novo Ususário</string>-->
@@ -65,12 +65,12 @@
 <!--    <string name="text_new_password">Nova Senha</string>-->
 
 <!--    <string name="text_wifi_interface_not_avaliable">WiFi interface invalido</string>-->
-    <string name="app_name">Pizzaria flash</string>
+    <string name="app_name">Price Research</string>
     <string name="app_version">v.0.0.2</string>
-    <string name="app_slogan">A pizza mais rapido do mundo</string>
-    <string name="app_welcome">Bem vindo</string>
-    <string name="text_forgot_password">esqueceu a senha?</string>
-    <string name="text_new_user">Resgistrar</string>
+    <string name="app_slogan">Save on the market</string>
+    <string name="app_welcome">Be welcome</string>
+    <string name="text_forgot_password">Forgot password?</string>
+    <string name="text_new_user">Register new user</string>
     <string name="text_sign_in">Sign In</string>
     <string name="text_sign_up">Sign Up</string>
     <string name="text_password">Password</string>
