@@ -47,16 +47,14 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="176dp"
-        android:layout_height="330dp"
+        android:layout_width="171dp"
+        android:layout_height="295dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="52dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView_new_user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintTop_toBottomOf="@id/login"
-        app:srcCompat="@drawable/logo"
-        />
+        app:layout_constraintTop_toTopOf="@+id/imagem_login"
+        app:srcCompat="@drawable/logo" />
 
     <ScrollView
         android:id="@+id/scrollView2"

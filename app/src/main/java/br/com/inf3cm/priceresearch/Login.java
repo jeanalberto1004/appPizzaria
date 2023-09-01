@@ -19,7 +19,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Locale;
 
-import br.com.tcc.pizzaria.R;
+import br.com.inf3fm.priceresearch.R;
+
 
 public class Login extends AppCompatActivity {
 
