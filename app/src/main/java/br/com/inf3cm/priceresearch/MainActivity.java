@@ -13,6 +13,5 @@ public class MainActivity extends AppCompatActivity {
         setTheme(R.style.Theme_LoginRegistration_NoActionBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-        setContentView(R.layout.registrar_se);
     }
 }

@@ -39,28 +39,28 @@ public class MSSQLConnectionHelper {
 
 
 // 1 - para o SOMEE.COM
-
+//
 //private static String mStringServerIpName = "Pizzaria.mssql.somee.com";
-
+//
 //private static String mStringUserName = "jean1004";
-
+//
 //private static String mStringPassword = "10042005";
-
+//
 // private static String mStringDatabase = "Pizzaria";
-
+//
 
 //2 - para LOCALHOST - funciona no emulador ou via cabo usb
 
-    private static String mStringServerIpName ="172.19.1.202";
+    private static String mStringServerIpName ="192.168.11.220";
 
     private static String mStringUserName = "sa";
 
-    private static String mStringPassword = "@ITB123456";
+    private static String mStringPassword = "123456";
 
 
     private static String mStringDatabase = "Pizzaria";
 
-    private static String mStringPort = "8080";
+    private static String mStringPort = "49172";
 
     private static String mStringInstance = "SQLEXPRESS";
 

@@ -19,7 +19,7 @@
 //
 //public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> implements Filterable {
 //
-//     public static final String TAG = "Class Product Adapter";
+//    public static final String TAG = "Class Product Adapter";
 //
 //    // criar interface para clique e clique longo
 //    private View.OnClickListener mOnClickListener;
@@ -38,16 +38,12 @@
 //    public ProductAdapter(Context mContext, List<Product> mProductList, TextView mTextViewTotalPrice) {
 //        this.mContext = mContext;
 //        this.mProductList = mProductList;
-//   }
+//    }
 //
 //    // a regra de negocio abaixo está em local errado
 //    // isso NAO DEVE SER FEITO AQUI, porém, para fins didaticos
 //    // irei fazer para explicar a metodologia de programacao
 //    // conhecida como codigo limpo (CLEAN CODE)
-//
-//
-//
-//
 //
 //
 //    @Override
@@ -59,7 +55,7 @@
 //    @Override
 //    public ProductAdapter.ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 //        LayoutInflater mLayoutInflater = LayoutInflater.from(mContext);
-//        View mItemView = mLayoutInflater.inflate(R.layout.card_cupom, parent , false);
+//        View mItemView = mLayoutInflater.inflate(R.layout.card_cupom, parent, false);
 //
 //        return new ProductViewHolder(mItemView, mImageViewProductView, mButtonentrar);
 //    }
@@ -69,9 +65,9 @@
 //        // vincular = ligar os obejetos da tela com dados e os objetos em java
 //        Product mProductCurrent = mProductList.get(position);  //current = item utilizado
 //        holder.mTextViewItemProductName.setText(mProductCurrent.getName());
-//        String mStringPrice = String.format("% .2f" , mProductCurrent.getPrice());
-//        holder.mTextViewItemProductPrice.setText(  mStringPrice);
-//        holder.mTextViewItemProductPrice.setText(  "R$"  +    mProductCurrent.getPrice());
+//        String mStringPrice = String.format("% .2f", mProductCurrent.getPrice());
+//        holder.mTextViewItemProductPrice.setText(mStringPrice);
+//        holder.mTextViewItemProductPrice.setText("R$" + mProductCurrent.getPrice());
 //        // precisa formatar corretmente o preco
 //        // trocar a cor do preco
 //        //Glide.with().load().into();imagem
@@ -89,9 +85,9 @@
 //        private final TextView mTextViewItemProductPrice;
 //        private final TextView mTextViewItemProductName;
 //
-//         private final ImageView mImageViewProductView;
+//        private final ImageView mImageViewProductView;
 //
-//       private final  Button mButtonentrar;
+//        private final Button mButtonentrar;
 //
 //
 //        // variaveis para controlar na memória a quantidade de produto e total da compra
@@ -108,4 +104,4 @@
 //
 //        }
 //    }
-//}essa tela nn esta acabada
+//}
