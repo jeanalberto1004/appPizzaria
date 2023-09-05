@@ -8,8 +8,8 @@ public class User {
 
 
     private int mId;
-    private String mFullName;
-    private String mUserName;
+    private String mtelefoneName;
+    private String mindereco;
     private String mPassword;
 
     public int getId() {
@@ -20,20 +20,20 @@ public class User {
         mId = id;
     }
 
-    public String getFullName() {
-        return mFullName;
+    public String gettelefoneName() {
+        return mtelefoneName;
     }
 
-    public void setFullName(String fullName) {
-        mFullName = fullName;
+    public void settelefoneName(String telefoneName) {
+        mtelefoneName = telefoneName;
     }
 
-    public String getUserName() {
-        return mUserName;
+    public String getindereco() {
+        return mindereco;
     }
 
-    public void setUserName(String userName) {
-        mUserName = userName;
+    public void setindereco(String indereco) {
+        mindereco = indereco;
     }
 
     public String getPassword() {
@@ -91,9 +91,9 @@ public class User {
 
     private String mEmail;
 
-    public User(String fullName, String userName, String password, String email, long createDate, String apiKey, String resetPasswordOtp, long resetPasswordCreatedAt) {
-        mFullName = fullName;
-        mUserName = userName;
+    public User(String telefoneName, String indereco, String password, String email, long createDate, String apiKey, String resetPasswordOtp, long resetPasswordCreatedAt) {
+        mtelefoneName = telefoneName;
+        mindereco = indereco;
         mPassword = password;
         mEmail = email;
         mCreateDate = createDate;
@@ -102,10 +102,10 @@ public class User {
         mResetPasswordCreatedAt = resetPasswordCreatedAt;
     }
 
-    public User(int id, String fullName, String userName, String password, String email, long createDate, String apiKey, String resetPasswordOtp, long resetPasswordCreatedAt) {
+    public User(int id, String telefoneName, String indereco, String password, String email, long createDate, String apiKey, String resetPasswordOtp, long resetPasswordCreatedAt) {
         mId = id;
-        mFullName = fullName;
-        mUserName = userName;
+        mtelefoneName = telefoneName;
+        mindereco = indereco;
         mPassword = password;
         mEmail = email;
         mCreateDate = createDate;
@@ -114,10 +114,10 @@ public class User {
         mResetPasswordCreatedAt = resetPasswordCreatedAt;
     }
 
-    public User(int id, String fullName, String userName, String password, String email) {
+    public User(int id, String telefoneName, String indereco, String password, String email) {
         mId = id;
-        mFullName = fullName;
-        mUserName = userName;
+        mtelefoneName = telefoneName;
+        mindereco = indereco;
         mPassword = password;
         mEmail = email;
     }
@@ -131,8 +131,8 @@ public class User {
     public String toString() {
         return "User{" +
                 "mId=" + mId +
-                ", mFullName='" + mFullName + '\'' +
-                ", mUserName='" + mUserName + '\'' +
+                ", mtelefoneName='" + mtelefoneName + '\'' +
+                ", mindereco='" + mindereco + '\'' +
                 ", mPassword='" + mPassword + '\'' +
                 ", mEmail='" + mEmail + '\'' +
                 ", mCreateDate=" + mCreateDate +

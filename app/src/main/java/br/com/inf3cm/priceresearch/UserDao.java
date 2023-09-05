@@ -18,12 +18,12 @@
 //        int vResponse = 0; // variavel de resposta com valor 0 = erro ao inserir
 //        String mSql;
 //        try {
-//            mSql = "INSERT Users ( fullname , username , password, email  , createdate,  apikey , reset_password_otp , reset_password_created_at ) VALUES ( ? , ? , ? , ? ,?,?,?,?)";
+//            mSql = "INSERT Users ( telefonename , indereco , password, email  , createdate,  apikey , reset_password_otp , reset_password_created_at ) VALUES ( ? , ? , ? , ? ,?,?,?,?)";
 //
 //            PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
 //
-//            mPreparedStatement.setString(1, mUser.getFullName());
-//            mPreparedStatement.setString(2, mUser.getUserName());
+//            mPreparedStatement.setString(1, mUser.gettelefoneName());
+//            mPreparedStatement.setString(2, mUser.getindereco());
 //            mPreparedStatement.setString(3, mUser.getPassword());
 //            mPreparedStatement.setString(4, mUser.getEmail());
 //            mPreparedStatement.setLong(5, mUser.getCreateDate());
@@ -47,12 +47,12 @@
 //        int vResponse = 0; // variavel de resposta com valor 0 = erro ao inserir
 //        String mSql;
 //        try {
-//            mSql = "UPDATE Users SET fullname=? , username=?  , password=? , email=?, createdata=? , apikey=? , reset_password_otp= ? , reset_password_created_at=?  WHERE id=?";
+//            mSql = "UPDATE Users SET telefonename=? , indereco=?  , password=? , email=?, createdata=? , apikey=? , reset_password_otp= ? , reset_password_created_at=?  WHERE id=?";
 //
 //            PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
 //
-//            mPreparedStatement.setString(1, mUser.getFullName());
-//            mPreparedStatement.setString(2, mUser.getUserName());
+//            mPreparedStatement.setString(1, mUser.gettelefoneName());
+//            mPreparedStatement.setString(2, mUser.getindereco());
 //            mPreparedStatement.setString(3, mUser.getPassword());
 //            mPreparedStatement.setString(4, mUser.getEmail());
 //            mPreparedStatement.setLong(5, mUser.getCreateDate());
@@ -118,7 +118,7 @@
 //        List<User> mUserList = null;
 //        String mSql;
 //        try {
-//            mSql = "SELECT id , fullname , username , password , email , createdate , apikey , reset_password_otp , reset_password_created_at FROM users ORDER BY name ASC";
+//            mSql = "SELECT id , telefonename , indereco , password , email , createdate , apikey , reset_password_otp , reset_password_created_at FROM users ORDER BY name ASC";
 //            PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
 //            ResultSet mResultSet = mPreparedStatement.executeQuery();
 //            mUserList = new ArrayList<User>();
@@ -146,7 +146,7 @@
 //        List<User> mUserList = null;
 //        String mSql;
 //        try{
-//            mSql= "SELECT id , fullname , username , password , email , createdate , apikey , reset_password_otp , reset_password_created_at FROM users WHERE status =" + vStatus + "ORDER BY name ASC";
+//            mSql= "SELECT id , telefonename , indereco , password , email , createdate , apikey , reset_password_otp , reset_password_created_at FROM users WHERE status =" + vStatus + "ORDER BY name ASC";
 //            PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
 //            ResultSet mResultSet = mPreparedStatement.executeQuery();
 //            mUserList = new ArrayList<User>();
@@ -160,7 +160,7 @@
 //    public static List<User> searchUserByName( String mName ,  Context mContext){
 //        // objeto para representar a lista
 //        List<User> mUserList = null;
-//        String mSql = "SELECT id , fullname , username , password , email , createdate , apikey , reset_password_otp , reset_password_created_at FROM Users  WHERE fullname LIKE '%" + mName + "%'  ORDER BY fullname";
+//        String mSql = "SELECT id , telefonename , indereco , password , email , createdate , apikey , reset_password_otp , reset_password_created_at FROM Users  WHERE telefonename LIKE '%" + mName + "%'  ORDER BY telefonename";
 //        try{
 //            PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
 //            // objeto para receber o resultado do conjunto de dados que foi selecionado
@@ -193,7 +193,7 @@
 //    public static String authenticateUser(  User mUser ,  Context mContext){
 //
 //        String mResponse = "";
-//        String mSql = "SELECT id , fullname , username , email , password FROM Users WHERE password LIKE ? AND email LIKE ?";
+//        String mSql = "SELECT id , telefonename , indereco , email , password FROM Users WHERE password LIKE ? AND email LIKE ?";
 //        try{
 //            PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
 //
@@ -205,7 +205,7 @@
 //
 //            while(mResultSet.next()){
 //                mResponse = mResultSet.getString(2);
-//                mResponse = mResultSet.getString("fullname");
+//                mResponse = mResultSet.getString("telefonename");
 //            }
 //
 //        } catch (Exception e){
@@ -249,10 +249,10 @@ public class UserDao {
         String mSql;
 
         try{
-            mSql = "Insert into USERS (fullname, username, password, email) values (?, ?, ?, ?)";
+            mSql = "Insert into USERS (telefone, indereco, password, email) values (?, ?, ?, ?)";
             PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
-            mPreparedStatement.setString(1, mUser.getFullName());
-            mPreparedStatement.setString(2, mUser.getUserName());
+            mPreparedStatement.setString(1, mUser.gettelefoneName());
+            mPreparedStatement.setString(2, mUser.getindereco());
             mPreparedStatement.setString(3, mUser.getPassword());
             mPreparedStatement.setString(4, mUser.getEmail());
             vResponse = mPreparedStatement.executeUpdate(); // executou com sucesso será 1
@@ -273,10 +273,10 @@ public class UserDao {
         String mSql;
 
         try{
-            mSql = "UPDATE users SET fullname=?, username=?, password=?, email=? WHERE id=?";
+            mSql = "UPDATE users SET telefonename=?, indereco=?, password=?, email=? WHERE id=?";
             PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
-            mPreparedStatement.setString(1, mUser.getFullName());
-            mPreparedStatement.setString(2, mUser.getUserName());
+            mPreparedStatement.setString(1, mUser.gettelefoneName());
+            mPreparedStatement.setString(2, mUser.getindereco());
             mPreparedStatement.setString(3, mUser.getPassword());
             mPreparedStatement.setString(4, mUser.getEmail());
             mPreparedStatement.setInt(5, mUser.getId());
@@ -312,7 +312,7 @@ public class UserDao {
     public static String authenticateUser(User mUser, Context mContext){
 
         String mResponse = "";
-        String mSql = "SELECT id, fullName, email, password FROM users WHERE password like ? and email like ?";;
+        String mSql = "SELECT id, telefoneName, email, password FROM users WHERE password like ? and email like ?";;
 
         try{
 

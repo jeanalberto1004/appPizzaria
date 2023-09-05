@@ -77,9 +77,9 @@
     <string name="text_email_or_username">Email ou username</string>
     <string name="text_email_or_password_incorrect">Email ou password incorreto</string>
 
-    <string name="text_full_name">Nome completo</string>
+    <string name="text_full_name">Telefone</string>
     <string name="text_email">Email</string>
-    <string name="text_user_name">Username</string>
+    <string name="text_user_name">Endereço</string>
 
     <string name="text_error_fill_mandatory_information">informaçoes obrigatoria</string>
     <string name="text_error_all_fields_required">todos os campos requeridos</string>
@@ -197,7 +197,7 @@
     <string name="showcase_item_dynamic_text">Dynamic\nText</string>
     <string name="showcase_item_recycler_view">RecyclerView</string>
     <string name="bullseye_drag_dot">Drag the blue dot</string>
-    <string name="text_enter_the_password_again">Enter the password again</string>
+    <string name="text_enter_the_password_again">Confirmar senha</string>
     <string name="text_password_are_not_same">Password are not the same</string>
     <string name="text_insert_error">Insert error</string>
     <string name="text_insert_success">Insert success</string>

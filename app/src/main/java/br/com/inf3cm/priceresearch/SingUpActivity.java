@@ -21,20 +21,20 @@ import br.com.tcc.pizzaria.R;
 public class SingUpActivity extends AppCompatActivity{
 
     private static final String TAG = "SignUpActivity";
-    private EditText mEditTextFullName;
+    private EditText mEditTexttelefoneName;
     private EditText mEditTextEmail;
-    private EditText mEditTextUserName;
+    private EditText mEditTextindereco;
     private EditText mEditTextPasswordSignUp, mEditTextPasswordSignUp2;
     private Button mButtonSignUp;
     private TextView mTextViewAlreadyLogin;
     private ProgressBar mProgressBar;
 
-    private String mStringName, mStringEmail, mStringPassword, mStringFullName;
+    private String mStringName, mStringEmail, mStringPassword, mStringtelefoneName;
 
     private boolean isRequired(){
-        if(TextUtils.isEmpty(mEditTextFullName.getText()) ||
+        if(TextUtils.isEmpty(mEditTexttelefoneName.getText()) ||
                 TextUtils.isEmpty(mEditTextEmail.getText()) ||
-                TextUtils.isEmpty(mEditTextUserName.getText()) ||
+                TextUtils.isEmpty(mEditTextindereco.getText()) ||
                 TextUtils.isEmpty(mEditTextPasswordSignUp.getText()) ||
                 TextUtils.isEmpty(mEditTextPasswordSignUp2.getText())) {
             return true;
@@ -68,14 +68,14 @@ public class SingUpActivity extends AppCompatActivity{
             return;
         }
 
-        mStringName = String.valueOf(mEditTextUserName.getText()).toLowerCase(Locale.ROOT);
+        mStringName = String.valueOf(mEditTextindereco.getText()).toLowerCase(Locale.ROOT);
         mStringEmail = String.valueOf(mEditTextEmail.getText());
         mStringPassword = String.valueOf(mEditTextPasswordSignUp.getText());
-        mStringFullName = String.valueOf(mEditTextFullName.getText());
+        mStringtelefoneName = String.valueOf(mEditTexttelefoneName.getText());
 
         mProgressBar.setVisibility(View.VISIBLE);
 
-        User mUser = new User(mStringFullName, mStringName, mStringPassword, mStringEmail, 0, "post", "otp", System.currentTimeMillis() );
+        User mUser = new User(mStringtelefoneName, mStringName, mStringPassword, mStringEmail, 0, "post", "otp", System.currentTimeMillis() );
 
         int vResult = UserDao.insertUser(mUser, getApplicationContext());
 
@@ -123,8 +123,8 @@ public class SingUpActivity extends AppCompatActivity{
 
 
         mEditTextEmail = findViewById(R.id.editText_email);
-        mEditTextUserName = findViewById(R.id.editText_user_name);
-        mEditTextFullName = findViewById(R.id.editText_full_name);
+        mEditTextindereco = findViewById(R.id.editText_user_name);
+        mEditTexttelefoneName = findViewById(R.id.editText_full_name);
         mEditTextPasswordSignUp = findViewById(R.id.editText_password_sign_up);
         mEditTextPasswordSignUp2 = findViewById(R.id.editText_password_sign_up_2);
 

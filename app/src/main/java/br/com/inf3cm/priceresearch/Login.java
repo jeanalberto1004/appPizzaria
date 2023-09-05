@@ -29,7 +29,7 @@ public class Login extends AppCompatActivity {
             Button mButtonLogin;
             EditText mEditTextEmail , mEditTextPassword;
             ProgressBar mProgressBarLogin;
-            String mStringUser ,mStringPassword , mStringEmail;
+            String mStringUser ,senha , mStringEmail;
             SharedPreferences mSharedPreferences;
 
             private  boolean isRequiredPassword(){return TextUtils.isEmpty(mEditTextPassword.getText());}
@@ -57,7 +57,7 @@ public class Login extends AppCompatActivity {
 
             private void postData(){
                     mStringEmail = String.valueOf(mEditTextEmail.getText()).toLowerCase(Locale.ROOT);
-                    mStringPassword = String.valueOf(mEditTextPassword.getText());
+                    senha = String.valueOf(mEditTextPassword.getText());
 
                     if (!isValidEmail(mStringEmail)){
                             String mTextMessage = getString(R.string.text_email_not_valid);
@@ -73,7 +73,7 @@ public class Login extends AppCompatActivity {
                     }
                 mProgressBarLogin.setVisibility(View.VISIBLE);
 
-                    User mUser = new User(mStringPassword , mStringEmail);
+                    User mUser = new User(senha , mStringEmail);
 
                     String mResult = UserDao.authenticateUser(mUser , getApplicationContext());
 
