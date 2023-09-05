@@ -4,17 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue_200"
-    tools:context="br.com.inf3cm.priceresearch.Login"
+    tools:context="br.com.inf3cm.priceresearch.LoginActivity"
     android:focusable="true"
-    android:focusableInTouchMode="false"
-
+    android:focusableInTouchMode="true"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/imagem_login"
-
         android:scaleType="fitCenter"/>
 
 
@@ -36,7 +34,7 @@
         android:id="@+id/textView_new_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/text_new_user"
+        android:text="@string/app_slogan"
         android:textAlignment="viewEnd"
         android:textColor="@color/black"
         android:textSize="18sp"

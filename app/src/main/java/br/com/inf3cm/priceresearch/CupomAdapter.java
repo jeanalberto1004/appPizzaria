@@ -3,26 +3,20 @@ package br.com.inf3cm.priceresearch;
 // 3.2
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import br.com.tcc.pizzaria.R;
 
-public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder>  {
+public class CupomAdapter extends RecyclerView.Adapter<CupomAdapter.ProductViewHolder>  {
 
     public static final String TAG = "Product Adapter";
 
@@ -34,7 +28,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
 
     //    public ProductAdapter(Context context, List<Product> productList) { //nv abaixo para receber o TextView da compra total
-    public ProductAdapter(Context context, List<Product> productList, TextView textViewTotalPrice) { //nv2
+    public CupomAdapter(Context context, List<Product> productList, TextView textViewTotalPrice) { //nv2
         //faca com generate constructor
 
         mContext = context;

@@ -3,7 +3,7 @@
     <string name="app_name">Pizzaria Flash</string>
     <string name="app_version">v.0.0.2</string>
     <string name="text_primeiro_acesso">Primeiro Acesso</string>
-    <string name="app_slogan">a pizza mais rapida do mundo</string>
+    <string name="app_slogan">A pizza mais rapida do mundo</string>
     <string name="app_welcome">Bem Vindo</string>
     <string name="text_forgot_password">Esqueceu a Senha?</string>
     <string name="text_new_user">Registrar Novo Ususário</string>
@@ -45,7 +45,7 @@ Porque nós o usamos?
     <string name="login_failed" translatable="false">"Falha no Login"</string>
 
     <string name="title_activity_sign_up" translatable="false">atividade de registro</string>
-    <string name="already_have_an_account_login" translatable="false">Já possui um  Cadastro na loja? Primeiro Acesso</string>
+    <string name="already_have_an_account_login" translatable="false">Fazer registro no app</string>
 
 
 

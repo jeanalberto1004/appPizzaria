@@ -312,7 +312,7 @@ public class UserDao {
     public static String authenticateUser(User mUser, Context mContext){
 
         String mResponse = "";
-        String mSql = "SELECT id, telefoneName, email, password FROM users WHERE password like ? and email like ?";;
+        String mSql = "SELECT id,  email, senha, status FROM login WHERE senha like ? and email like ?";;
 
         try{
 

@@ -25,7 +25,7 @@ public class ResetPassword extends AppCompatActivity{
     String mEmail;
 
     private void performAbandonReset(){
-        Intent mIntent = new Intent(getApplicationContext(), Login.class);
+        Intent mIntent = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(mIntent);
         finish();
     }

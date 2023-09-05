@@ -14,6 +14,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.Theme_LoginRegistration_NoActionBar);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lista_cupom);
+        setContentView(R.layout.activity_login);
     }
 }

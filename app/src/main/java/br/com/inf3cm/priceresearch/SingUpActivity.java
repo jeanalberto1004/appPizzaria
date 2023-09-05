@@ -50,7 +50,7 @@ public class SingUpActivity extends AppCompatActivity{
     }
 
     private void performActivityLogin(){
-        Intent mIntent = new Intent(getApplicationContext(), Login.class);
+        Intent mIntent = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(mIntent);
         finish();
     }
@@ -93,7 +93,7 @@ public class SingUpActivity extends AppCompatActivity{
 
         Toast.makeText(getApplicationContext(), mTextMessage, Toast.LENGTH_SHORT).show();
 
-        Intent mIntent = new Intent(getApplicationContext(), Login.class);
+        Intent mIntent = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(mIntent);
         finish();
 
@@ -116,7 +116,7 @@ public class SingUpActivity extends AppCompatActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.registrar_se);
+        setContentView(R.layout.activity_registrar_se);
 
              getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
