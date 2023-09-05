@@ -12,221 +12,275 @@ import java.util.List;
 
 public class ProductDao {
 
-     public static final String TAG = "CRUD table Product";
+    private static final String TAG = "CupomDao";
 
-     public static int insertProduct(Product mProduct , Context mContext){
-         int vResponse = 0; // variavel de resposta com valor 0 = erro ao inserir
-         String mSql;
-         try {
-             mSql = "INSERT INTRO products (name , price , status , image ) VALUES ( ? , ? , ? , ?  )";
+    public static int insertProduct(Product mProduct, Context mContext){
 
-             PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
+        int vResponse = 0;
+        String mSql;
 
-             mPreparedStatement.setString(1, mProduct.getName());
-             mPreparedStatement.setDouble(2, mProduct.getPrice());
-             mPreparedStatement.setInt(3, mProduct.getStatus());
-             mPreparedStatement.setLong(4, mProduct.getImage());
+        try{
+            mSql = "INSERT products (name, price, status, image,) VALUES (?, ?, ?, ?)";
 
-             vResponse = mPreparedStatement.executeUpdate();
+            PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
 
-         } catch (Exception e) {
-             Log.e( TAG , e.getMessage());
-         }
+            mPreparedStatement.setString(1, mProduct.getName());
+            mPreparedStatement.setDouble(2, mProduct.getPrice());
+            mPreparedStatement.setInt(4, mProduct.getStatus());
+            mPreparedStatement.setInt(5, mProduct.getImage());
+            vResponse = mPreparedStatement.executeUpdate(); // executou com sucesso será 1
 
+        }catch (Exception mException){
+            Log.e(TAG, mException.getMessage());
+            mException.printStackTrace();
+        }
 
-         return vResponse; // 0 nao fez insert     1 fez insert com sucesso
-     }
-
-     public static int updateProduct(Product mProduct , Context mContext){
-         int vResponse = 0; // variavel de resposta com valor 0 = erro ao inserir
-         String mSql;
-         try {
-             mSql = "UPDATE products SET name=? , price=?  , status=? , image=? , WHERE id=?";
-
-             PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
-
-             mPreparedStatement.setString(1, mProduct.getName());
-             mPreparedStatement.setDouble(2, mProduct.getPrice());
-             mPreparedStatement.setInt(3, mProduct.getStatus());
-             mPreparedStatement.setLong(4, mProduct.getImage());
-             mPreparedStatement.setInt(5, mProduct.getId());
-
-             vResponse = mPreparedStatement.executeUpdate();
-
-         } catch (Exception e) {
-             Log.e( TAG , e.getMessage());
-         }
+        return vResponse;
 
 
-         return vResponse; // 0 nao fez insert     1 fez insert com sucesso
-     }
+    }
 
-     public static int deleteProduct(Product mProduct , Context mContext){
-         int vResponse = 0; // variavel de resposta com valor 0 = erro ao inserir
-         String mSql;
-         try {
-             mSql = "DELETE FROM products WHERE id=?";
+    public static int updateProduct(Product mProduct, Context mContext){
 
-             PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
+        int vResponse = 0;
+        String mSql;
 
+        try{
+            mSql = "UPDATE products SET name=?, price=?, status=?, image=?, WHERE id=?";
+            PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
+            mPreparedStatement.setString(1, mProduct.getName());
+            mPreparedStatement.setDouble(2, mProduct.getPrice());
+            mPreparedStatement.setInt(4, mProduct.getStatus());
+            mPreparedStatement.setInt(5, mProduct.getImage());
+            mPreparedStatement.setInt(8, mProduct.getId());
+            vResponse = mPreparedStatement.executeUpdate(); // executou com sucesso será 1
 
-             mPreparedStatement.setInt(1, mProduct.getId());
+        }catch (Exception mException){
+            Log.e(TAG, mException.getMessage());
+            mException.printStackTrace();
+        }
 
-             vResponse = mPreparedStatement.executeUpdate();
+        return vResponse;
 
-         } catch (Exception e) {
-             Log.e( TAG , e.getMessage());
-         }
+    }
 
+    public static int deleteProduct(Product mProduct, Context mContext){
 
-         return vResponse; // 0 nao fez insert     1 fez insert com sucesso
-     }
+        //causando lentidao no app
 
-     public static int deleteAllProduct( Context mContext){
-         int vResponse = 0; // variavel de resposta com valor 0 = erro ao inserir
-         String mSql;
-         try {
-             mSql = "DELETE FROM products ";
+        int vResponse = 0;
+        String mSql;
 
-             PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
+        try{
+            mSql = "Delete from products where id=?";
+            PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
+            mPreparedStatement.setInt(1, mProduct.getId());
+            vResponse = mPreparedStatement.executeUpdate();
 
+        }catch(Exception mException){
+            Log.e(TAG, mException.getMessage());
+            mException.printStackTrace();
+        }
 
+        return vResponse;
 
-             vResponse = mPreparedStatement.executeUpdate();
+    }
 
-         } catch (Exception e) {
-             Log.e( TAG , e.getMessage());
-         }
+    public static int deleteAllProducts(Context mContext){
 
+        int vResponse = 0;
+        String mSql;
 
-         return vResponse; // 0 nao fez insert     1 fez insert com sucesso
-     }
+        try{
+            mSql = "Delete from products";
+            PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
+            vResponse = mPreparedStatement.executeUpdate();
 
-     public static List<Product> listAllProducts(Context mContext){
-         // objeto para representar a lista
-         List<Product> mProductList = null;
-         String mSql;
-         try{
-           mSql  = "SELECT id , name , price , status , image  FROM products ORDER BY name ASC";
+        }catch(Exception mException){
+            Log.e(TAG, mException.getMessage());
+            mException.printStackTrace();
+        }
 
-             PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
-             // objeto para receber o resultado do conjunto de dados que foi selecionado
-             // esse objeto tem o nome de RESULTSET (em outras lingugens de programacao DATASET)
-             ResultSet mResultSet = mPreparedStatement.executeQuery();
-             // esse conjuto está em memoria. Preciso preparar para exibir na tela essa listagem
-             mProductList = new ArrayList<Product>(); // array = dinamica = vai mudar
-             while(mResultSet.next()){
-                 mProductList.add(new Product(
-                         mResultSet.getInt(1),
-                         mResultSet.getString(2),
-                         mResultSet.getDouble(3),
-                         mResultSet.getInt(4),
-                         mResultSet.getLong(5)
+        return vResponse;
 
-                 ));
-             }
+    }
 
-         } catch (Exception e){
-             Log.e(TAG , e.getMessage());
-         }
+    public static List<Product> listAllProducts(Context mContext){
 
-         return mProductList;
-     }
+        // Listagem de produtos
+        List<Product> mProductList = null;
+        String mSql = "Select id, name, price,  status, image from products order by name ASC";
 
-     public static List<Product> listAllProductsByStatus( int vStatus ,  Context mContext){
-         // objeto para representar a lista
-         List<Product> mProductList = null;
-         String mSql = "SELECT id , name , price , status , image  FROM products  WHERE status=" + vStatus + "  ORDER BY name";
-         try{
-             PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
-             // objeto para receber o resultado do conjunto de dados que foi selecionado
-             // esse objeto tem o nome de RESULTSET (em outras lingugens de programacao DATASET)
-             ResultSet mResultSet = mPreparedStatement.executeQuery();
-             // esse conjuto está em memoria. Preciso preparar para exibir na tela essa listagem
-             mProductList = new ArrayList<Product>(); // array = dinamica = vai mudar
-             while(mResultSet.next()){
-                 mProductList.add(new Product(
-                         mResultSet.getInt(1),
-                         mResultSet.getString(2),
-                         mResultSet.getDouble(3),
-                         mResultSet.getInt(4),
-                         mResultSet.getLong(5)
+//        try{
+////            mSql = "Select id, name, price, rating, status, image, amountConsumption, consumptionCycle from products order by name ASC";
+//            PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
+//
+//            ResultSet mResultSet = mPreparedStatement.executeQuery();
+//
+// NOVA ABORDAGEM ABAIXO
 
-                 ));
-             }
+        try (PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
+             ResultSet mResultSet = mPreparedStatement.executeQuery()) {
 
-         } catch (Exception e){
-             Log.e(TAG , e.getMessage());
-         }
+            /*
+            No exemplo acima, PreparedStatement e ResultSet são declarados dentro da instrução try. Assim, eles serão fechados automaticamente ao final do block try, mesmo se uma exceção for lançada. Isso ajuda a evitar vazamentos de recursos e torna o código mais limpo, pois você não precisa explicitamente chamar o método close() em um bloco finally.
+            */
 
-         return mProductList;
-     }
+            mProductList = new ArrayList<Product>();
+            while(mResultSet.next()){
+                mProductList.add(new Product(
+                        mResultSet.getInt(1),
+                        mResultSet.getString(2),
+                        mResultSet.getDouble(3), // price
+                        mResultSet.getInt(4),
+                        0
+                ));
+            }
 
-     public static List<Product> listAllProductsByPrice( double vPrice ,  Context mContext){
-         // objeto para representar a lista
-         List<Product> mProductList = null;
-         String mSql = "SELECT id , name , price , status , image  FROM products  WHERE price=" + vPrice + "  ORDER BY name";
-         try{
-             PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
-             // objeto para receber o resultado do conjunto de dados que foi selecionado
-             // esse objeto tem o nome de RESULTSET (em outras lingugens de programacao DATASET)
-             ResultSet mResultSet = mPreparedStatement.executeQuery();
-             // esse conjuto está em memoria. Preciso preparar para exibir na tela essa listagem
-             mProductList = new ArrayList<Product>(); // array = dinamica = vai mudar
-             while(mResultSet.next()){
-                 mProductList.add(new Product(
-                         mResultSet.getInt(1),
-                         mResultSet.getString(2),
-                         mResultSet.getDouble(3),
-                         mResultSet.getInt(4),
-                         mResultSet.getLong(5)
+        }catch(Exception mException){
+            Log.e(TAG, mException.getMessage());
+            mException.printStackTrace();
+        }
 
-                 ));
-             }
+        return mProductList;
 
-         } catch (Exception e){
-             Log.e(TAG , e.getMessage());
-         }
+    }
 
-         return mProductList;
-     }
+    public static List<Product> listAllProductsByStatus(int vStatus, Context mContext){
 
-     public static List<Product> searchProductsByName( String mName ,  Context mContext){
-         // objeto para representar a lista
-         List<Product> mProductList = null;
-         String mSql = "SELECT id , name , price , status , image  FROM products  WHERE name LIKE '%" + mName + "%'  ORDER BY name";
-         try{
-             PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
-             // objeto para receber o resultado do conjunto de dados que foi selecionado
-             // esse objeto tem o nome de RESULTSET (em outras lingugens de programacao DATASET)
-             ResultSet mResultSet = mPreparedStatement.executeQuery();
-             // esse conjuto está em memoria. Preciso preparar para exibir na tela essa listagem
-             mProductList = new ArrayList<Product>(); // array = dinamica = vai mudar
-             while(mResultSet.next()){
-                 mProductList.add(new Product(
-                         mResultSet.getInt(1),
-                         mResultSet.getString(2),
-                         mResultSet.getDouble(3),
-                         mResultSet.getInt(4),
-                         mResultSet.getLong(5)
+        // Listagem de produtos
+        List<Product> mProductList = null;
+        String mSql = "SELECT id, name, price, status, image,FROM products WHERE status=" + vStatus + " ORDER BY name ASC";
 
-                 ));
-             }
+        //SQL INJECTION
 
-         } catch (Exception e){
-             Log.e(TAG , e.getMessage());
-         }
+//        try{
+////            mSql = "Select id, name, price, rating, status, image, amountConsumption, consumptionCycle from products order by name ASC";
+//            PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
+//
+//            ResultSet mResultSet = mPreparedStatement.executeQuery();
+//
+// NOVA ABORDAGEM ABAIXO
 
-         return mProductList;
-     }
+        try (PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
+             ResultSet mResultSet = mPreparedStatement.executeQuery()) {
+
+            /*
+            No exemplo acima, PreparedStatement e ResultSet são declarados dentro da instrução try. Assim, eles serão fechados automaticamente ao final do block try, mesmo se uma exceção for lançada. Isso ajuda a evitar vazamentos de recursos e torna o código mais limpo, pois você não precisa explicitamente chamar o método close() em um bloco finally.
+            */
+
+            mProductList = new ArrayList<Product>();
+            while(mResultSet.next()){
+                mProductList.add(new Product(
+                        mResultSet.getInt(1),
+                        mResultSet.getString(2),
+                        mResultSet.getDouble(3), // price
+                        mResultSet.getInt(4),
+                        0
+                ));
+            }
+
+        }catch(Exception mException){
+            Log.e(TAG, mException.getMessage());
+            mException.printStackTrace();
+        }
+
+        return mProductList;
+
+    }
+
+    public static List<Product> listAllProductsByRating(float vRating, Context mContext){
+
+        // Listagem de produtos
+        List<Product> mProductList = null;
+        String mSql = "SELECT id, name, price, status, image,  FROM products WHERE rating = ? ORDER BY name ASC";
+
+        try {
+            PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
+            mPreparedStatement.setFloat(1, vRating);
+            ResultSet mResultSet = mPreparedStatement.executeQuery();
+            /*
+            No exemplo acima, PreparedStatement e ResultSet são declarados dentro da instrução try. Assim, eles serão fechados automaticamente ao final do block try, mesmo se uma exceção for lançada. Isso ajuda a evitar vazamentos de recursos e torna o código mais limpo, pois você não precisa explicitamente chamar o método close() em um bloco finally.
+            */
+
+            mProductList = new ArrayList<Product>();
+            while(mResultSet.next()){
+                mProductList.add(new Product(
+                        mResultSet.getInt(1),
+                        mResultSet.getString(2),
+                        mResultSet.getDouble(3), // price
+                        mResultSet.getInt(5),
+                        0
+                ));
+            }
+
+        }catch(Exception mException){
+            Log.e(TAG, mException.getMessage());
+            mException.printStackTrace();
+        }
+
+        return mProductList;
+
+    }
+
+    public static List<Product> searchProductsByName(String mStringName, Context mContext){
+
+        // Listagem de produtos
+        List<Product> mProductList = null;
+        String mSql;
+
+        try{
+            mSql = "Select id, name, price, rating, status, image,  amountConsumption, consumptionCycle from products where name like '%" + mStringName + "%' order by name ASC";
+            PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
+            ResultSet mResultSet = mPreparedStatement.executeQuery();
+            mProductList = new ArrayList<Product>();
+            while(mResultSet.next()){
+                mProductList.add(new Product(
+                        mResultSet.getInt(1),
+                        mResultSet.getString(2),
+                        mResultSet.getDouble(3),
+                        mResultSet.getInt(4),
+                        0
+                ));
+            }
+
+        }catch(Exception mException){
+            Log.e(TAG, mException.getMessage());
+            mException.printStackTrace();
+        }
+
+        return mProductList;
+
+    }
 
 }
 
 
+/*
+
+Cada método nesta classe é responsável por uma operação específica de CRUD (Criar, Ler, Atualizar, Deletar) no banco de dados.
+
+Por favor, note que esta classe está usando java.sql.PreparedStatement para executar comandos SQL, o que é bom para prevenir injeções SQL e melhorar o desempenho. No entanto, na string SQL do método searchProductsByName, os argumentos estão sendo concatenados diretamente à string SQL. Isto pode potencialmente permitir uma injeção SQL. É recomendado usar parâmetros também neste caso.
+
+
+
+Em geral, a classe ProductDao está bem organizada e segue boas práticas comuns em Java para interação com o banco de dados. No entanto, existem algumas áreas que poderiam ser melhoradas para melhorar a segurança, a robustez e a eficiência do código.
+
+Injeção SQL: No método searchProductsByName, o valor de mStringName é concatenado diretamente na consulta SQL. Isso pode permitir um ataque de injeção SQL. Em vez disso, você deve usar o método setString do objeto PreparedStatement para proteger contra a injeção de SQL.
+
+Gerenciamento de exceções: Atualmente, todas as exceções são capturadas e registradas, mas depois ignoradas. Dependendo do seu caso de uso, você pode querer lidar com diferentes exceções de maneiras diferentes. Por exemplo, se uma exceção ocorre durante a inserção de um produto, você pode querer lançar a exceção para que ela possa ser tratada em um nível superior de sua aplicação.
+
+Fechamento de recursos: O código atual não fecha explicitamente PreparedStatement e ResultSet. É uma prática recomendada fechar esses recursos em um bloco finally para garantir que sejam fechados mesmo se ocorrer uma exceção. No entanto, a partir do Java 7, você pode usar o try-with-resources que fecha automaticamente esses recursos.
+
+Retorno de métodos: Para os métodos de inserção, atualização e exclusão, o código retorna o número de linhas afetadas. Isso pode ser útil para confirmar se a operação foi bem-sucedida ou não. No entanto, para a operação de inserção, pode ser mais útil retornar o ID do novo produto inserido.
+
+Uso de contexto: A classe DAO geralmente não deve ter nenhuma dependência em classes Android como Context. O DAO deve apenas lidar com a lógica de banco de dados, enquanto as classes Android deveriam ser usadas nas camadas de serviço ou UI. Se a conexão de banco de dados necessitar de um contexto, você pode considerar usar um singleton para gerenciar a conexão de banco de dados.
+
+Essas são algumas melhorias possíveis para este código. No entanto, a qualidade do código também depende muito dos requisitos do seu projeto específico e das convenções de codificação da sua equipe.
 
 
 
 
 
 
-
+ */
