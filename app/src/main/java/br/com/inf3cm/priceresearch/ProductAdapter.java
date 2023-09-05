@@ -20,7 +20,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> implements Filterable {
+import br.com.tcc.pizzaria.R;
+
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder>  {
 
     public static final String TAG = "Product Adapter";
 
@@ -30,10 +32,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     private Context mContext;
     private List<Product> mProductList;
 
-    private List<Product> mProductListFull; // será usada para recompor totalmente a lista na busca - fotografia
-
-
-    private TextView mTextViewTotalPrice;//nv2 - para totalizar o valor da compra
 
     //    public ProductAdapter(Context context, List<Product> productList) { //nv abaixo para receber o TextView da compra total
     public ProductAdapter(Context context, List<Product> productList, TextView textViewTotalPrice) { //nv2
@@ -41,107 +39,22 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         mContext = context;
         mProductList = productList;
-        mTextViewTotalPrice = textViewTotalPrice;//nv2
     }
 
-    public List<Product> getProductsToBuy() { //26-06-2023
-        List<Product> mList = new ArrayList<>();
-        for(Product mProduct : mProductList){
-            if(mProduct.getUnit() > 0){
-                mList.add(mProduct);
-            }
-        }
-        return mList;
-    }
-
-
-//    public String setPriceColor(double vRating){
-//        if(vRating < 3){
-//            return "#BF0404"; //299E4A green     737373 gray
-//        } else {
-//            return "#000000";
-//        }
-//    }
 
     public class ProductViewHolder extends RecyclerView.ViewHolder {
         // widgets do layout card_item_list.xml
         private final ImageView mImageViewProduct;
         private final TextView mTextViewItemProductDescription;  //productName
         private final TextView mTextViewItemProductPrice;
-        private final RatingBar mRatingBarItemProduct;
-        private final Button mButtonProductQuantity; //productUnit
-        private final Button mButtonProductAdd;
-        private final Button mButtonProductRemove;
-
-        double vTotalPrice = 0.0;
-
-        int vQuantity = 0;
-
-//        private void showTotalPrice(){
-//            vTotalPrice = 0;
-//            for (int i = 0; i <= mProductList.size()-1; i++){
-//                vTotalPrice = vTotalPrice + mProductList.get(i).getPrice()* mProductList.get(i).getUnit();
-//            }
-//            NumberFormat mFormatValue = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
-//            String mStringValue = mFormatValue.format(vTotalPrice);
-//            mTextViewTotalPrice.setText(mStringValue);
-//        }
-
-        public class ClickMyButtonAdd implements View.OnClickListener{
-            @Override
-            public void onClick(View view) {
-                vQuantity = mProductList.get(getAdapterPosition()).getUnit() + 1;
-                if(vQuantity >= 10){
-                    mButtonProductQuantity.setTextSize(12f);
-                } else{
-                    mButtonProductQuantity.setTextSize(18f);
-                }
-                mButtonProductQuantity.setText(""+vQuantity);
-                mProductList.get(getAdapterPosition()).setUnit(vQuantity);
-                //showTotalPrice();
-                String mTotalPrice = ProductBusinessLogic.calculateTotalPrice(mProductList);
-                mTextViewTotalPrice.setText(mTotalPrice);
-            }
-        }
-
-        public class ClickMyButtonRemove implements View.OnClickListener{
-            @Override
-            public void onClick(View view) {
-            //    if(vQuantity >0){
-                    vQuantity = mProductList.get(getAdapterPosition()).getUnit() - 1;
-                    if(vQuantity >= 10){ // > 9
-                        mButtonProductQuantity.setTextSize( 12f);
-                    } else{
-                        mButtonProductQuantity.setTextSize( 18f);
-                    }
-                    if(vQuantity<0){ // corrigir bug do ultimo item da lista quando zerado passava a -1
-                        vQuantity=0;
-                    }
-                    mButtonProductQuantity.setText(""+vQuantity); // hack com ""
-                    mProductList.get(getAdapterPosition()).setUnit(vQuantity);
-                    //showTotalPrice();
-                    String mTotalPrice = ProductBusinessLogic.calculateTotalPrice(mProductList);
-                    mTextViewTotalPrice.setText(mTotalPrice);
-             //   }
-            }
-        }
 
 
         private ProductViewHolder(@NonNull View itemView) {
             super(itemView);
             mTextViewItemProductDescription = itemView.findViewById(R.id.textView_item_product_name_rev2);
             mTextViewItemProductPrice = itemView.findViewById(R.id.textView_item_product_price_rev2);
-            mRatingBarItemProduct = itemView.findViewById(R.id.ratingBar_item_product_price_perception_rev2);
 
-            mButtonProductQuantity = itemView.findViewById(R.id.button_product_quantity_rev2);
-
-            mButtonProductRemove = itemView.findViewById(R.id.button_product_remove_rev2);
-            mButtonProductRemove.setOnClickListener(new ClickMyButtonRemove());
-
-            mButtonProductAdd = itemView.findViewById(R.id.button_product_add_rev2);
-            mButtonProductAdd.setOnClickListener(new ClickMyButtonAdd());
-
-            mImageViewProduct = itemView.findViewById(R.id.image_item_product_list_rev2);
+            mImageViewProduct = itemView.findViewById(R.id.image_item_product_list_rev1);
 
             itemView.setTag(this);
             itemView.setOnClickListener(mOnItemClickListener);
@@ -154,7 +67,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @Override  // esse método carrega um item da lista
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup mViewGroupParent, int viewType) {
         LayoutInflater mLayoutInflater = LayoutInflater.from(mContext); //nv
-        View mItemView = mLayoutInflater.inflate(R.layout.card_item_product_list_2, mViewGroupParent, false);
+        View mItemView = mLayoutInflater.inflate(R.layout.card_cupom, mViewGroupParent, false);
         return new ProductViewHolder(mItemView);
     }
 
@@ -172,13 +85,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         String mStringPrice = String.format("%.2f", mProductCurrent.getPrice());
         mProductViewHolder.mTextViewItemProductPrice.setText(mStringPrice);
 
-        String mStringPriceColor = ProductBusinessLogic.setPriceColor(mProductCurrent.getRating());
-       // mProductViewHolder.mTextViewItemProductPrice.setTextColor(Color.parseColor(setPriceColor(mProductCurrent.getRating())));
-        mProductViewHolder.mTextViewItemProductPrice.setTextColor(Color.parseColor(mStringPriceColor));
-
-        mProductViewHolder.mRatingBarItemProduct.setRating(mProductCurrent.getRating());
-
-        mProductViewHolder.mButtonProductQuantity.setText(""+mProductCurrent.getUnit());
 
         // AQUI NO onBindViewHolder (ex. ProductViewHolder) - TEMOS resposta de muitos erros
 
@@ -193,67 +99,34 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     @Override
     public int getItemCount() {
-        if(mProductList != null){
-            return  mProductList.size();
+        if (mProductList != null) {
+            return mProductList.size();
         } else {
             return 0;
         }
     }
 
-    public void setProductList(List<Product> mProducts){
+    public void setProductList(List<Product> mProducts) {
         mProductList = mProducts;
-        mProductListFull = new ArrayList<>(mProducts);
+
         notifyDataSetChanged();
     }
 
-    public Product getProductFrom(int vPosition){ //getProductAt
+    public Product getProductFrom(int vPosition) { //getProductAt
 
         return mProductList.get(vPosition);
     }
 
-    public void setOnItemClickListener(View.OnClickListener mItemClickListener){
+    public void setOnItemClickListener(View.OnClickListener mItemClickListener) {
         mOnItemClickListener = mItemClickListener;
     }
 
-    public void setOnLongClickListener(View.OnLongClickListener mItemLongClickListener){
+    public void setOnLongClickListener(View.OnLongClickListener mItemLongClickListener) {
         mOnLongClickListener = mItemLongClickListener;
     }
 
-    private Filter applyProductFilter = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence charSequence) {
-            List<Product> mFilteredList = new ArrayList<>();
-            if(charSequence == null  ||  charSequence.length() == 0 ) {
-                mFilteredList.addAll(mProductListFull);
-            } else {
-                String mFilterPattern = charSequence.toString().toLowerCase().trim();
-                for(Product mProduct : mProductListFull ) {
-                    if(mProduct.getName().toLowerCase().contains(mFilterPattern)){
-                        mFilteredList.add(mProduct);
-                    }
-                }
-            }
-            FilterResults mFilterResults = new FilterResults();
-            mFilterResults.values = mFilteredList;
-            return mFilterResults;
-        }
 
-        @Override
-        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-            mProductList.clear();
-            mProductList.addAll((List) filterResults.values);
-            notifyDataSetChanged();
-        }
-    };
-
-
-    //procure  no codigo o getfilter
-    @Override
-    public Filter getFilter(){
-        return applyProductFilter;
-    }
-
-}
+};
 
 
 /**
