@@ -1,5 +1,3 @@
-
-// 1
 package br.com.inf3cm.priceresearch;
 
 public class User {
@@ -7,138 +5,188 @@ public class User {
     private static final String TAG = "User";
 
 
-    private int mId;
-    private String mtelefoneName;
-    private String mindereco;
-    private String mPassword;
+    private long mId;
+    private String mTelefone;
 
-    public int getId() {
+    public User(int mId, String mTelefone, String mCep, String mSenha, String mEmail, String mNome, String mLogradrouro, String mCidade, String mBairro, String mNumeroResid, String mComplemento, String mStatus, long mCreateDate, String mApiKey, String mResetSenhaOtp, long mResetSenhaCreatedAt) {
+        this.mId = mId;
+        this.mTelefone = mTelefone;
+        this.mCep = mCep;
+        this.mSenha = mSenha;
+        this.mEmail = mEmail;
+        this.mNome = mNome;
+        this.mLogradrouro = mLogradrouro;
+        this.mCidade = mCidade;
+        this.mBairro = mBairro;
+        this.mNumeroResid = mNumeroResid;
+        this.mComplemento = mComplemento;
+        this.mStatus = mStatus;
+        this.mCreateDate = mCreateDate;
+        this.mApiKey = mApiKey;
+        this.mResetSenhaOtp = mResetSenhaOtp;
+        this.mResetSenhaCreatedAt = mResetSenhaCreatedAt;
+    }
+
+    private String mCep;
+
+    public User(String mTelefone, String mCep, String mSenha, String mEmail, String mNome, String mLogradrouro, String mCidade, String mBairro, String mNumeroResid, String mComplemento, String mStatus, long mCreateDate, String mApiKey, String mResetSenhaOtp, long mResetSenhaCreatedAt) {
+        this.mTelefone = mTelefone;
+        this.mCep = mCep;
+        this.mSenha = mSenha;
+        this.mEmail = mEmail;
+        this.mNome = mNome;
+        this.mLogradrouro = mLogradrouro;
+        this.mCidade = mCidade;
+        this.mBairro = mBairro;
+        this.mNumeroResid = mNumeroResid;
+        this.mComplemento = mComplemento;
+        this.mStatus = mStatus;
+        this.mCreateDate = mCreateDate;
+        this.mApiKey = mApiKey;
+        this.mResetSenhaOtp = mResetSenhaOtp;
+        this.mResetSenhaCreatedAt = mResetSenhaCreatedAt;
+    }
+
+    private String mSenha;
+    private String mEmail;
+    private String mNome;
+    private String mLogradrouro;
+    private String mCidade;
+    private String mBairro;
+    private int mNumeroResid;
+    private String mComplemento;
+    private String mStatus;
+    private long mCreateDate;
+    private String mApiKey;
+    private String mResetSenhaOtp;
+
+    public long getmId() {
         return mId;
     }
 
-    public void setId(int id) {
-        mId = id;
+    public void setmId(long mId) {
+        this.mId = mId;
     }
 
-    public String gettelefoneName() {
-        return mtelefoneName;
+    public String getmTelefone() {
+        return mTelefone;
     }
 
-    public void settelefoneName(String telefoneName) {
-        mtelefoneName = telefoneName;
+    public void setmTelefone(String mTelefone) {
+        this.mTelefone = mTelefone;
     }
 
-    public String getindereco() {
-        return mindereco;
+    public String getmCep() {
+        return mCep;
     }
 
-    public void setindereco(String indereco) {
-        mindereco = indereco;
+    public void setmCep(String mCep) {
+        this.mCep = mCep;
     }
 
-    public String getPassword() {
-        return mPassword;
+    public String getmSenha() {
+        return mSenha;
     }
 
-    public void setPassword(String password) {
-        mPassword = password;
+    public void setmSenha(String mSenha) {
+        this.mSenha = mSenha;
     }
 
-    public String getEmail() {
-        return mEmail.toLowerCase().trim();
+    public String getmEmail() {
+        return mEmail;
     }
 
-    public User(String password, String email) {
-        mPassword = password;
-        mEmail = email;
+    public void setmEmail(String mEmail) {
+        this.mEmail = mEmail;
     }
 
-    public void setEmail(String email) {
-        mEmail = email;
+    public String getmNome() {
+        return mNome;
     }
 
-    public long getCreateDate() {
+    public void setmNome(String mNome) {
+        this.mNome = mNome;
+    }
+
+    public String getmLogradrouro() {
+        return mLogradrouro;
+    }
+
+    public void setmLogradrouro(String mLogradrouro) {
+        this.mLogradrouro = mLogradrouro;
+    }
+
+    public String getmCidade() {
+        return mCidade;
+    }
+
+    public void setmCidade(String mCidade) {
+        this.mCidade = mCidade;
+    }
+
+    public String getmBairro() {
+        return mBairro;
+    }
+
+    public void setmBairro(String mBairro) {
+        this.mBairro = mBairro;
+    }
+
+    public String getmNumeroResid() {
+        return mNumeroResid;
+    }
+
+    public void setmNumeroResid(String mNumeroResid) {
+        this.mNumeroResid = mNumeroResid;
+    }
+
+    public String getmComplemento() {
+        return mComplemento;
+    }
+
+    public void setmComplemento(String mComplemento) {
+        this.mComplemento = mComplemento;
+    }
+
+    public String getmStatus() {
+        return mStatus;
+    }
+
+    public void setmStatus(String mStatus) {
+        this.mStatus = mStatus;
+    }
+
+    public long getmCreateDate() {
         return mCreateDate;
     }
 
-    public void setCreateDate(long createDate) {
-        mCreateDate = createDate;
+    public void setmCreateDate(long mCreateDate) {
+        this.mCreateDate = mCreateDate;
     }
 
-    public String getApiKey() {
+    public String getmApiKey() {
         return mApiKey;
     }
 
-    public void setApiKey(String apiKey) {
-        mApiKey = apiKey;
+    public void setmApiKey(String mApiKey) {
+        this.mApiKey = mApiKey;
     }
 
-    public String getResetPasswordOtp() {
-        return mResetPasswordOtp;
+    public String getmResetSenhaOtp() {
+        return mResetSenhaOtp;
     }
 
-    public void setResetPasswordOtp(String resetPasswordOtp) {
-        mResetPasswordOtp = resetPasswordOtp;
+    public void setmResetSenhaOtp(String mResetSenhaOtp) {
+        this.mResetSenhaOtp = mResetSenhaOtp;
     }
 
-    public long getResetPasswordCreatedAt() {
-        return mResetPasswordCreatedAt;
+    public long getmResetSenhaCreatedAt() {
+        return mResetSenhaCreatedAt;
     }
 
-    public void setResetPasswordCreatedAt(long resetPasswordCreatedAt) {
-        mResetPasswordCreatedAt = resetPasswordCreatedAt;
+    public void setmResetSenhaCreatedAt(long mResetSenhaCreatedAt) {
+        this.mResetSenhaCreatedAt = mResetSenhaCreatedAt;
     }
 
-    private String mEmail;
-
-    public User(String telefoneName, String indereco, String password, String email, long createDate, String apiKey, String resetPasswordOtp, long resetPasswordCreatedAt) {
-        mtelefoneName = telefoneName;
-        mindereco = indereco;
-        mPassword = password;
-        mEmail = email;
-        mCreateDate = createDate;
-        mApiKey = apiKey;
-        mResetPasswordOtp = resetPasswordOtp;
-        mResetPasswordCreatedAt = resetPasswordCreatedAt;
-    }
-
-    public User(int id, String telefoneName, String indereco, String password, String email, long createDate, String apiKey, String resetPasswordOtp, long resetPasswordCreatedAt) {
-        mId = id;
-        mtelefoneName = telefoneName;
-        mindereco = indereco;
-        mPassword = password;
-        mEmail = email;
-        mCreateDate = createDate;
-        mApiKey = apiKey;
-        mResetPasswordOtp = resetPasswordOtp;
-        mResetPasswordCreatedAt = resetPasswordCreatedAt;
-    }
-
-    public User(int id, String telefoneName, String indereco, String password, String email) {
-        mId = id;
-        mtelefoneName = telefoneName;
-        mindereco = indereco;
-        mPassword = password;
-        mEmail = email;
-    }
-
-    private long mCreateDate;
-    private String mApiKey;
-    private String mResetPasswordOtp;
-    private long mResetPasswordCreatedAt;
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "mId=" + mId +
-                ", mtelefoneName='" + mtelefoneName + '\'' +
-                ", mindereco='" + mindereco + '\'' +
-                ", mPassword='" + mPassword + '\'' +
-                ", mEmail='" + mEmail + '\'' +
-                ", mCreateDate=" + mCreateDate +
-                ", mApiKey='" + mApiKey + '\'' +
-                ", mResetPasswordOtp='" + mResetPasswordOtp + '\'' +
-                ", mResetPasswordCreatedAt=" + mResetPasswordCreatedAt +
-                '}';
-    }
+    private long mResetSenhaCreatedAt;
 }
