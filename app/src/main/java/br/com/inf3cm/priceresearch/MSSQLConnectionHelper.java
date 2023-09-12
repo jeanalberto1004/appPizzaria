@@ -180,29 +180,29 @@ public class MSSQLConnectionHelper {
 
 
 // 1 - para o SOMEE.COM
-//
-//private static String mStringServerIpName = "Pizzaria.mssql.somee.com";
-//
-//private static String mStringUserName = "jean1004";
-//
-//private static String mStringPassword = "10042005";
-//
-// private static String mStringDatabase = "Pizzaria";
-//
+
+private static String mStringServerIpName = "Pizzaria.mssql.somee.com";
+
+private static String mStringUserName = "Jean1004";
+
+private static String mStringPassword = "10042005";
+
+ private static String mStringDatabase = "Pizzaria";
+
 
 //2 - para LOCALHOST - funciona no emulador ou via cabo usb
-
-    private static String mStringServerIpName = "10.0.2.2";  //"172.19.1.173";
-
-    private static String mStringUserName = "sa";
-
-    private static String mStringPassword = "@ITB123456";
-
-    private static String mStringDatabase = "Pizzaria";
-
-    private static String mStringPort = "1433"; //"8080";
-
-    private static String mStringInstance = "SQLEXPRESS";
+//
+//    private static String mStringServerIpName = "10.0.2.2";  //"172.19.1.173";
+//
+//    private static String mStringUserName = "sa";
+//
+//    private static String mStringPassword = "@ITB123456";
+//
+//    private static String mStringDatabase = "Pizzaria";
+//
+//    private static String mStringPort = "1433"; //"8080";
+//
+//    private static String mStringInstance = "SQLEXPRESS";
 
 // a codificação anterior funcionar para o - MySql
 
@@ -227,20 +227,20 @@ public class MSSQLConnectionHelper {
 
 // criando a string de conexao para o SOMEE.COM
 
-//            mStringConnectionUrl = "jdbc:jtds:sqlserver://" + mStringServerIpName +
-//
-//                    ";databaseName=" + mStringDatabase +
-//
-//                    ";user=" + mStringUserName +
-//
-//                    ";password=" + mStringPassword + ";" ;
+            mStringConnectionUrl = "jdbc:jtds:sqlserver://" + mStringServerIpName +
+
+                    ";databaseName=" + mStringDatabase +
+
+                    ";user=" + mStringUserName +
+
+                    ";password=" + mStringPassword + ";" ;
 
 
 // para o LOCALHOST ou MySql a mStringConnectionUrl é programada de outra forma
 
             // abordagem para MSSQLServer Local
-             mStringConnectionUrl = "jdbc:jtds:sqlserver://" + mStringServerIpName + ":" + mStringPort + "/" + mStringDatabase + ";instance=" + mStringInstance + ";user=" + mStringUserName + ";password=" + mStringPassword + ";"; // integratedSecurity=true;"; //;encrypt=true;trustServerCertificate=false;loginTimeout=30;
-            // teste mStringConnectionUrl = "jdbc:jtds:sqlserver://10.0.2.2:1433/dbLoginRegister;instance=SQLEXPRESS;user=userApp;password=1234;";
+//             mStringConnectionUrl = "jdbc:jtds:sqlserver://" + mStringServerIpName + ":" + mStringPort + "/" + mStringDatabase + ";instance=" + mStringInstance + ";user=" + mStringUserName + ";password=" + mStringPassword + ";"; // integratedSecurity=true;"; //;encrypt=true;trustServerCertificate=false;loginTimeout=30;
+              mStringConnectionUrl = "jdbc:jtds:sqlserver://10.0.2.2:1433/dbLoginRegister;instance=SQLEXPRESS;user=userApp;password=1234;";
 
 
 
