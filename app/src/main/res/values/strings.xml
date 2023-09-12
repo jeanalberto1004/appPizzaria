@@ -21,9 +21,15 @@ Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica 
 Porque nós o usamos?
 É um fato conhecido de todos que um leitor se distrairá com o conteúdo de texto legível de uma página quando estiver examinando sua diagramação. A vantagem de usar Lorem Ipsum é que ele tem uma distribuição normal de letras, ao contrário de </string>
 
-    <string name="text_full_name">Telefone</string>
+    <string name="text_telefone">Telefone</string>
+    <string name="text_Cep">Cep</string>
     <string name="text_email">Email</string>
-    <string name="text_user_name">Endereço</string>
+    <string name="text_fullName">Nome completo</string>
+    <string name="text_Cidade">Cidade</string>
+    <string name="text_Bairro">Bairro</string>
+    <string name="text_NumeroRESID">Numero da residencia</string>
+    <string name="text_cOMPLEMENTO">Complemento</string>
+    <string name="text_logradouro">logradouro</string>
 
     <string name="text_error_fill_mandatory_information">informaçoes obrigatoria</string>
     <string name="text_error_all_fields_required">todos os campos requeridos</string>

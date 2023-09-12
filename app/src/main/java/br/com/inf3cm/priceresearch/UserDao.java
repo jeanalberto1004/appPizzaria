@@ -33,7 +33,7 @@ public class UserDao {
             mPreparedStatement.setString(6, mUser.getmLogradrouro());
             mPreparedStatement.setString(7, mUser.getmCidade());
             mPreparedStatement.setString(8, mUser.getmBairro());
-//            mPreparedStatement.setLong(9, mUser.getmNumeroResid());
+            mPreparedStatement.setString(9, mUser.getmNumeroResid());
             mPreparedStatement.setString(10, mUser.getmComplemento());
             mPreparedStatement.setString(11, mUser.getmStatus());
 
@@ -63,7 +63,7 @@ public class UserDao {
             mPreparedStatement.setString(6, mUser.getmLogradrouro());
             mPreparedStatement.setString(7, mUser.getmCidade());
             mPreparedStatement.setString(8, mUser.getmBairro());
-//            mPreparedStatement.setInt(9, mUser.getmNumeroResid());
+            mPreparedStatement.setString(9, mUser.getmNumeroResid());
             mPreparedStatement.setString(10, mUser.getmComplemento());
             mPreparedStatement.setString(11, mUser.getmStatus());
             mPreparedStatement.setLong(12, mUser.getmId());
@@ -84,7 +84,7 @@ public class UserDao {
         try{
             mSql = "Delete from users where id=?";
             PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
-            mPreparedStatement.setInt(1, mUsers.getmId());
+            mPreparedStatement.setLong(1, mUsers.getmId());
             vResponse = mPreparedStatement.executeUpdate();
 
         }catch(Exception mException){

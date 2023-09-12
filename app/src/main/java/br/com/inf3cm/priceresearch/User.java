@@ -8,7 +8,7 @@ public class User {
     private long mId;
     private String mTelefone;
 
-    public User(int mId, String mTelefone, String mCep, String mSenha, String mEmail, String mNome, String mLogradrouro, String mCidade, String mBairro, String mNumeroResid, String mComplemento, String mStatus, long mCreateDate, String mApiKey, String mResetSenhaOtp, long mResetSenhaCreatedAt) {
+    public User(String mTelefone, String mCep, String mSenha, String mEmail, String mNome, String mLogradrouro, String mCidade, String mBairro, String mNumeroResid, long mCreateDate) {
         this.mId = mId;
         this.mTelefone = mTelefone;
         this.mCep = mCep;
@@ -29,7 +29,7 @@ public class User {
 
     private String mCep;
 
-    public User(String mTelefone, String mCep, String mSenha, String mEmail, String mNome, String mLogradrouro, String mCidade, String mBairro, String mNumeroResid, String mComplemento, String mStatus, long mCreateDate, String mApiKey, String mResetSenhaOtp, long mResetSenhaCreatedAt) {
+    public User(String mTelefone, String mCep) {
         this.mTelefone = mTelefone;
         this.mCep = mCep;
         this.mSenha = mSenha;
@@ -38,8 +38,8 @@ public class User {
         this.mLogradrouro = mLogradrouro;
         this.mCidade = mCidade;
         this.mBairro = mBairro;
-        this.mNumeroResid = mNumeroResid;
         this.mComplemento = mComplemento;
+        this.mNumeroResid = mNumeroResid;
         this.mStatus = mStatus;
         this.mCreateDate = mCreateDate;
         this.mApiKey = mApiKey;
@@ -53,7 +53,7 @@ public class User {
     private String mLogradrouro;
     private String mCidade;
     private String mBairro;
-    private int mNumeroResid;
+    private String mNumeroResid;
     private String mComplemento;
     private String mStatus;
     private long mCreateDate;

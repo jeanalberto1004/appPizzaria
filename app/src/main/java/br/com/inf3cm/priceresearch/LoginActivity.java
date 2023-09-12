@@ -29,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     Button mButtonLogin;
     EditText mEditTextEmail, mEditTextPassword;
     ProgressBar mProgressBarLogin;
+
     String mStringUser, mStringsenha, mStringEmail;
     SharedPreferences mSharedPreferences;
 
@@ -69,7 +70,6 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if (isRequiredPassword()) {
-//                            provavelmente esta com erro no mandatory
             String mTextMessage = getString(R.string.text_error_fill_mandatory_information);
             Toast.makeText(getApplicationContext(), mTextMessage, Toast.LENGTH_SHORT).show();
             return;

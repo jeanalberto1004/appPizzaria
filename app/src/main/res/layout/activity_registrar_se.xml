@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="br.com.inf3cm.priceresearch.SingUpActivity"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    tools:context="br.com.inf3cm.priceresearch.SingUpActivity">
 
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -19,57 +19,26 @@
         tools:layout_editor_absoluteY="0dp" />
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView_sign_up"
+        style="@style/TextAppearance.AppCompat.Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView_sign_up"
-        android:text="@string/text_new_user"
-        android:textSize="24dp"
-        android:textColor="@color/black"
-        android:layout_marginEnd="24dp"
         android:layout_marginTop="12dp"
-        style="@style/TextAppearance.AppCompat.Headline"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="24dp"
+        android:text="@string/text_new_user"
+        android:textColor="@color/black"
+        android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView2">
-
-
-        <ProgressBar
-            android:id="@+id/progressBarSignUp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@id/button_sign_up"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textView_already"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/text_abandon_reset_password"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@+id/button_sign_up"
-            tools:layout_editor_absoluteX="0dp" />
-
-        <LinearLayout
-            android:id="@+id/linear_layout_bottom_signup"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent">
-
-
-
-        </LinearLayout>
+        app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView2"
+        app:layout_constraintTop_toBottomOf="@+id/editText_numeroResid">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_sign_up"
@@ -85,69 +54,111 @@
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progressBarSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/button_sign_up"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textView_already"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/text_abandon_reset_password"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_sign_up" />
+
+        <LinearLayout
+            android:id="@+id/linear_layout_bottom_signup"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="1dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_sign_up">
+
+
+        </LinearLayout>
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/editText_full_name"
+        android:id="@+id/editText_telefone"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="45dp"
         android:background="@drawable/bg_edit_normal"
-        android:drawableRight="@drawable/ic_add"
-        android:drawableTint="@color/black"
-        android:hint="@string/text_full_name"
+        android:hint="@string/text_telefone"
         android:inputType="text"
         android:paddingStart="18dp"
         android:paddingEnd="18dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView_sign_up"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_sign_up" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/editText_email"
+        android:id="@+id/editText_cep"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/bg_edit_normal"
-        android:drawableRight="@drawable/ic_email"
-        android:drawableTint="@color/black"
-        android:hint="@string/text_email"
+        android:hint="@string/text_Cep"
         android:inputType="textEmailAddress"
         android:paddingStart="18dp"
         android:paddingEnd="18dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/editText_full_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_telefone"
         tools:layout_editor_absoluteX="25dp" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/editText_user_name"
+        android:id="@+id/editText_email"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/bg_edit_normal"
-        android:drawableRight="@drawable/ic_person"
-        android:drawableTint="@color/black"
-        android:hint="@string/text_user_name"
+        android:hint="@string/text_email"
         android:inputType="text"
         android:paddingStart="18dp"
         android:paddingEnd="18dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
+
         android:textSize="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/editText_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_cep"
         tools:layout_editor_absoluteX="0dp" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/editText_password_sign_up"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/bg_edit_normal"
-        android:drawableRight="@drawable/ic_password"
-        android:drawableTint="@color/black"
         android:hint="@string/text_password"
         android:inputType="textPassword"
         android:paddingStart="18dp"
@@ -155,96 +166,120 @@
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/editText_user_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_email"
         tools:layout_editor_absoluteX="16dp" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/editText_password_sign_up_2"
+        android:id="@+id/editText_fullname"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/bg_edit_normal"
-        android:drawableRight="@drawable/ic_password"
-        android:drawableTint="@color/black"
-        android:hint="@string/text_enter_the_password_again"
+        android:hint="@string/text_fullName"
         android:inputType="textPassword"
         android:paddingStart="18dp"
         android:paddingEnd="18dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_password_sign_up"
         tools:layout_editor_absoluteX="-31dp" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/editText_password_sign_up_"
+        android:id="@+id/editText_logradouro"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/bg_edit_normal"
-        android:drawableRight="@drawable/ic_password"
-        android:drawableTint="@color/black"
-        android:hint="@string/text_enter_the_password_again"
+        android:hint="@string/text_logradouro"
         android:inputType="textPassword"
         android:paddingStart="18dp"
         android:paddingEnd="18dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/editText_password_sign_up_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_fullname"
         tools:layout_editor_absoluteX="16dp" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/editText_password_sign_up_3"
+        android:id="@+id/editText_cidade"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/bg_edit_normal"
-        android:drawableRight="@drawable/ic_password"
-        android:drawableTint="@color/black"
-        android:hint="@string/text_enter_the_password_again"
+        android:hint="@string/text_Cidade"
         android:inputType="textPassword"
         android:paddingStart="18dp"
         android:paddingEnd="18dp"
         android:textColor="@color/black"
+
         android:textColorHint="@color/black"
         android:textSize="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/editText_password_sign_up_"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_logradouro"
         tools:layout_editor_absoluteX="-16dp" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/editText_password_sign_up_4"
+        android:id="@+id/editText_bairro"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/bg_edit_normal"
-        android:drawableRight="@drawable/ic_password"
-        android:drawableTint="@color/black"
-        android:hint="@string/text_enter_the_password_again"
+        android:hint="@string/text_Bairro"
         android:inputType="textPassword"
         android:paddingStart="18dp"
         android:paddingEnd="18dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/editText_password_sign_up_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_cidade"
         tools:layout_editor_absoluteX="-16dp" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/editText_password_sign_up_5"
+        android:id="@+id/editText_numeroResid"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/bg_edit_normal"
-        android:drawableRight="@drawable/ic_password"
-        android:drawableTint="@color/black"
-        android:hint="@string/text_enter_the_password_again"
+        android:hint="@string/text_NumeroRESID"
+        android:inputType="textPassword"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:layout_marginBottom="10dp"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_complemento"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editText_complemento"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_edit_normal"
+        android:hint="@string/text_cOMPLEMENTO"
         android:inputType="textPassword"
         android:paddingStart="18dp"
         android:paddingEnd="18dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/editText_password_sign_up_4"
-        tools:layout_editor_absoluteX="0dp" /><![CDATA[
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_bairro"
+        tools:layout_editor_absoluteX="0dp" />
 
 
-
-
-
-    />]]>
+</androidx.constraintlayout.widget.ConstraintLayout>
