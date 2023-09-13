@@ -21,6 +21,7 @@ import java.util.Locale;
 
 import br.com.tcc.pizzaria.R;
 
+
 public class LoginActivity extends AppCompatActivity {
 
     public static final String TAG = "Login Activity";

@@ -109,8 +109,8 @@ public class UserDao {
 
             PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
 
-            mPreparedStatement.setString(1, mUser.getmSenha());
-            mPreparedStatement.setString(2, mUser.getmEmail());
+            mPreparedStatement.setString(1, mUser.getmEmail());
+            mPreparedStatement.setString(2, mUser.getmSenha());
             ResultSet mResultSet = mPreparedStatement.executeQuery();
             while(mResultSet.next()){
                 mResponse = mResultSet.getString(2); // veja o objeto 'mSql'

@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import br.com.tcc.pizzaria.R;
 
+
 public class NewPasswordActivity extends AppCompatActivity {
 
     private static final String TAG = "NewPasswordActivity";

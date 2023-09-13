@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Locale;
 
 import br.com.tcc.pizzaria.R;
+
 public class SingUpActivity extends AppCompatActivity{
 
     private static final String TAG = "SignUpActivity";

@@ -33,7 +33,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import br.com.tcc.pizzaria.R;
 
 public class ProductAddEditActivity extends AppCompatActivity {
 
