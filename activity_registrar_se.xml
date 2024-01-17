@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:background="@drawable/background2"
+    android:focusableInTouchMode="true"
+    tools:context="br.com.inf3cm.priceresearch.SingUpActivity">
+
+
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView_sign_up"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/text_new_user"
+        android:textColor="@color/black"
+        android:textSize="19dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_telefone"
+        app:layout_constraintVertical_bias="0.192">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_sign_up"
+            android:layout_width="370dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_button_normal"
+            android:backgroundTint="@color/orange_700"
+            android:letterSpacing="0.04"
+            android:padding="5dp"
+            android:paddingTop="7dp"
+            android:text="@string/text_sign_up"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:flow_horizontalAlign="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.609"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2" />
+
+        <ProgressBar
+            android:id="@+id/progressBarSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/button_sign_up"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textView_already"
+            android:layout_width="400dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/text_abandon_reset_password"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:flow_horizontalAlign="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_sign_up" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editText_telefone"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="220dp"
+        android:background="@drawable/bg_edit_normal"
+        android:hint="@string/text_telefone"
+        android:inputType="number"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="18dp"
+        app:flow_horizontalAlign="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_email" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editText_cep"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_edit_normal"
+        android:hint="@string/text_Cep"
+        app:flow_horizontalAlign="start"
+        android:textAlignment="center"
+        android:inputType="number"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_logradouro" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editText_email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_edit_normal"
+        android:hint="@string/text_email"
+        app:flow_horizontalAlign="center"
+        android:textAlignment="center"
+        android:inputType="textEmailAddress"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:layout_marginTop="15dp"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_complemento" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editText_password_sign_up"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_edit_normal"
+        android:hint="@string/text_password"
+        android:inputType="textPassword"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="18dp"
+        app:flow_horizontalAlign="start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_email" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editText_fullname"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_edit_normal"
+        android:hint="@string/text_fullName"
+        android:inputType="text"
+        app:flow_horizontalAlign="center"
+        android:textAlignment="center"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_sign_up" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editText_logradouro"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_edit_normal"
+        android:hint="@string/text_logradouro"
+        app:flow_horizontalAlign="center"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_bairro" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editText_cidade"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_edit_normal"
+        android:hint="@string/text_Cidade"
+        android:inputType="text"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="18dp"
+        app:flow_horizontalAlign="start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_fullname" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editText_bairro"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_edit_normal"
+        android:hint="@string/text_Bairro"
+        android:inputType="text"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="18dp"
+        app:flow_horizontalAlign="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_fullname" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editText_numeroResid"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_edit_normal"
+        android:hint="@string/text_NumeroRESID"
+        android:inputType="text"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="18dp"
+        app:flow_horizontalAlign="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_logradouro" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editText_complemento"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_edit_normal"
+        android:hint="@string/text_cOMPLEMENTO"
+        app:flow_horizontalAlign="center"
+        android:textAlignment="center"
+        android:inputType="text"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_numeroResid" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
